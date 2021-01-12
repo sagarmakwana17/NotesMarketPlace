@@ -1,0 +1,190 @@
+.content-box-lg {
+    padding: 60px 0;
+}
+
+#user-section {
+    background: url(../img/User-Profile/banner-with-overlay.jpg);
+    height: 250px;
+margin-top: 80px;
+}
+
+#user-section h4 {
+    font-family: "Open Sans";
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 52px;
+}
+.navbar {
+    padding: 10px 0 10px 0;
+    background-color: white;
+    padding-left:  90px;
+   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.08);
+}
+
+a {
+    color: #333333;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.nav > li > a:hover{
+    color: #6255a5;
+    background: none;
+    border-bottom: 2px solid #6255a5;
+}
+/* dropdown css*/
+.dropdown{
+     position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+.dropdown-menu a {
+  padding: 0px 5px;
+   margin: 20px 0;
+}
+.dropdown-menu a:hover{
+    background-color: #6255a5;
+    color: white;
+}
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #6255a5;
+    border-color: #6255a5;
+    width: 89px;
+
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    line-height: 22px;
+}
+
+
+#display-picture{
+     height: 100px;
+   
+    background: url("../img/User-Profile/upload.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 20px;
+}
+#update-notes{
+      height: 100px;
+   
+    background: url("../img/images/ss-upload.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 20px;
+}
+#note-preview{
+         height: 100px;
+   
+    background: url("../img/images/upload-file.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 20px;
+}
+#full-name,#email,subject{
+    margin-bottom: 10px;
+}
+#questions{
+    height: 190px;
+}
+h3 {
+    color: #6255a5;
+    padding-left: 12px;
+    padding-bottom: 20px;
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+}
+
+h4 {
+    color: #6255a5;
+    padding-left: 12px;
+    margin-top: 50px;
+   
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+}
+h5 {
+    color: #6255a5;
+    padding-left: 12px;
+    padding-bottom: 20px;
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+}
+label {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #333333;
+}
+#professor{
+    width: 49%;
+}
+#sell-price{
+    width: 49%;
+}
+}
+#radio{
+    display: flex;
+}
+.form-check{
+    margin-left: 20px;
+}
+#paid{
+ margin-left: 20px;   
+}
+.form-check-input{
+    color: #6255a5;
+    height: 42px;
+    width: 42px;
+    margin-top: 10px;
+}
+td{
+    padding: 10px;
+}
+#save,#publish{
+    width: 150px;
+    height: 35px;
+    font-size: 18px;
+    font-family: "Open Sans";
+}
+#submit{
+    margin-top: 30px;
+}
+
+
+footer{
+    padding: 40px 0;
+}
+footer p span {
+    float: right;
+}
+footer p span .fa {
+    border-radius: 15px;
+    border-color: #6255a5;
+    color: #fff;
+    border: 1px solid #6255a5;
+    background-color: #6255a5;
+    height: 18px;
+}
+footer p span i {
+    padding: 0 10px 0 10px;
+    margin-left: 10px;
+}
