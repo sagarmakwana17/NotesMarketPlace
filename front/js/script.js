@@ -32,6 +32,19 @@ window.onclick = function(event) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 $(".toggle-password").click(function () {
 
     $(this).toggleClass("fa-eye fa-eye-slash");

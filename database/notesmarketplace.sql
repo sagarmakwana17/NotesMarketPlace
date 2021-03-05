@@ -1,11 +1,21 @@
-
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 05, 2021 at 05:29 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `notesmarketplace`
@@ -70,6 +80,13 @@ CREATE TABLE `notecategories` (
   `IsActive` bit(1) NOT NULL DEFAULT b'1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `notecategories`
+--
+
+INSERT INTO `notecategories` (`ID`, `Name`, `Description`, `CreatedDate`, `CreatedBy`, `ModifiedDated`, `ModifiedBy`, `IsActive`) VALUES
+(1, 'science', 'scientific notes', '2021-03-05 18:56:41', NULL, NULL, NULL, b'1');
+
 -- --------------------------------------------------------
 
 --
@@ -86,6 +103,14 @@ CREATE TABLE `notetypes` (
   `ModifiedBy` int(11) DEFAULT NULL,
   `IsActive` bit(1) NOT NULL DEFAULT b'1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notetypes`
+--
+
+INSERT INTO `notetypes` (`ID`, `Name`, `Description`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`) VALUES
+(1, 'free', 'free', '2021-03-05 19:04:00', NULL, NULL, NULL, b'1'),
+(2, 'paid', 'paid', '2021-03-05 19:04:56', NULL, NULL, NULL, b'1');
 
 -- --------------------------------------------------------
 
@@ -104,6 +129,13 @@ CREATE TABLE `referencedata` (
   `ModifiedBy` int(11) DEFAULT NULL,
   `IsActive` bit(1) NOT NULL DEFAULT b'1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `referencedata`
+--
+
+INSERT INTO `referencedata` (`ID`, `value`, `DataValue`, `RefCategory`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`) VALUES
+(1, 'inreview', 'inreview', 'inreview', '2021-03-05 18:49:11', NULL, NULL, NULL, b'1');
 
 -- --------------------------------------------------------
 
@@ -138,6 +170,13 @@ CREATE TABLE `sellernotes` (
   `ModifiedBy` int(11) DEFAULT NULL,
   `IsActive` bit(1) NOT NULL DEFAULT b'1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sellernotes`
+--
+
+INSERT INTO `sellernotes` (`ID`, `SellerID`, `Status`, `ActionedBy`, `AdminRemarks`, `PublishedDate`, `Title`, `Category`, `DisplayPicture`, `NoteType`, `NumberofPages`, `Description`, `UniversityName`, `Country`, `Course`, `CourseCode`, `Professor`, `IsPaid`, `SellingPrice`, `NotesPreview`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`) VALUES
+(15, 2, 1, NULL, NULL, NULL, 'Bootstrap & Css', 1, '', 0, 4, 'this course is for bootstrap & css', 'BVM', 0, 'bootstrap', '306', 'prof shah', b'1', '80', 'uploads/notes_uploaded/bet report.pdf', '2021-03-05 19:09:07', NULL, NULL, NULL, b'1');
 
 -- --------------------------------------------------------
 
@@ -258,6 +297,14 @@ CREATE TABLE `userroles` (
   `IsActive` bit(1) NOT NULL DEFAULT b'1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `userroles`
+--
+
+INSERT INTO `userroles` (`ID`, `Name`, `Description`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`) VALUES
+(1, 'admin', 'administrator', '2021-02-09 15:08:12', NULL, NULL, NULL, b'1'),
+(2, 'member', NULL, '2021-02-27 15:04:34', NULL, NULL, NULL, b'1');
+
 -- --------------------------------------------------------
 
 --
@@ -276,8 +323,19 @@ CREATE TABLE `users` (
   `CreatedBy` int(11) DEFAULT NULL,
   `ModifiedDate` datetime DEFAULT NULL,
   `ModifiedBy` int(11) DEFAULT NULL,
-  `IsActive` bit(1) DEFAULT b'1'
+  `IsActive` bit(1) DEFAULT b'1',
+  `vkey` varchar(255) DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`ID`, `RoleID`, `FirstName`, `LastName`, `EmailID`, `Password`, `IsEmailVerified`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`, `vkey`) VALUES
+(1, 1, 'sagar', 'makwana', 'abc@gmail.com', '123', b'0', '2021-02-16 15:09:18', NULL, NULL, NULL, b'1', '2fcd3a8bcb6fd2160b3bff4f3ec1dbbc'),
+(15, 2, 'malhar', 'mak', 'a@gmail.com', 'Sagar@17', b'1', '2021-02-28 22:49:50', NULL, NULL, NULL, b'1', '2fcd3a8bcb6fd2160b3bff4f3ec1dbbc'),
+(16, 2, 'malhar', 'mak', 'abcd@gmail.com', 'Sagar@17', b'1', '2021-02-28 23:29:38', NULL, NULL, NULL, b'1', '2fcd3a8bcb6fd2160b3bff4f3ec1dbbc'),
+(18, 2, 'akash', 'makwana', 'skywalker4073@gmail.com', '3049', b'1', '2021-03-02 12:56:26', NULL, NULL, NULL, b'1', 'd8eb567c6bf5ad833dc375f92276ee07');
 
 --
 -- Indexes for dumped tables
@@ -401,25 +459,25 @@ ALTER TABLE `downloads`
 -- AUTO_INCREMENT for table `notecategories`
 --
 ALTER TABLE `notecategories`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `notetypes`
 --
 ALTER TABLE `notetypes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `referencedata`
 --
 ALTER TABLE `referencedata`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sellernotes`
 --
 ALTER TABLE `sellernotes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `sellernotesattachements`
@@ -455,13 +513,13 @@ ALTER TABLE `userprofile`
 -- AUTO_INCREMENT for table `userroles`
 --
 ALTER TABLE `userroles`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
@@ -474,17 +532,6 @@ ALTER TABLE `downloads`
   ADD CONSTRAINT `downloads_ibfk_1` FOREIGN KEY (`NoteID`) REFERENCES `sellernotes` (`ID`),
   ADD CONSTRAINT `downloads_ibfk_2` FOREIGN KEY (`Seller`) REFERENCES `users` (`ID`),
   ADD CONSTRAINT `downloads_ibfk_3` FOREIGN KEY (`Downloader`) REFERENCES `users` (`ID`);
-
---
--- Constraints for table `sellernotes`
---
-ALTER TABLE `sellernotes`
-  ADD CONSTRAINT `sellernotes_ibfk_1` FOREIGN KEY (`SellerID`) REFERENCES `users` (`ID`),
-  ADD CONSTRAINT `sellernotes_ibfk_2` FOREIGN KEY (`Status`) REFERENCES `referencedata` (`ID`),
-  ADD CONSTRAINT `sellernotes_ibfk_3` FOREIGN KEY (`ActionedBy`) REFERENCES `users` (`ID`),
-  ADD CONSTRAINT `sellernotes_ibfk_4` FOREIGN KEY (`Category`) REFERENCES `notecategories` (`ID`),
-  ADD CONSTRAINT `sellernotes_ibfk_5` FOREIGN KEY (`NoteType`) REFERENCES `notetypes` (`ID`),
-  ADD CONSTRAINT `sellernotes_ibfk_6` FOREIGN KEY (`Country`) REFERENCES `countries` (`ID`);
 
 --
 -- Constraints for table `sellernotesattachements`

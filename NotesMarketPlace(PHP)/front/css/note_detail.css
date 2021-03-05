@@ -1,0 +1,294 @@
+
+
+.collapse{
+    padding: 10px 0;
+}
+.nav-item{
+    padding-top: 20px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+     color: #333333;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+
+.nav-item:hover{
+      color: #6255a5 ;
+    background: none;
+    border-bottom: 2px solid #6255a5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.content-box-lg {
+    padding: 60px 0;
+}
+
+#user-section {
+    background: url(../img/User-Profile/banner-with-overlay.jpg);
+    height: 250px;
+
+}
+
+#user-section h4 {
+    font-family: "Open Sans";
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 52px;
+}
+
+.navbar {
+    padding: 10px 0 10px 0;
+     background-color: white;
+    padding-left:  90px;
+   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.08);
+}
+
+a {
+    color: #333333;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.nav > li > a:hover{
+    color: #6255a5;
+    background: none;
+    border-bottom: 2px solid #6255a5;
+}
+
+/* dropdown css*/
+.dropdown{
+     position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+.dropdown-menu a {
+  padding: 0px 5px;
+   margin: 20px 0;
+}
+.dropdown-menu a:hover{
+    background-color: #6255a5;
+    color: white;
+}
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #6255a5;
+    border-color: #6255a5;
+    width: 89px;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    line-height: 22px;
+}
+#note-details{
+    border-bottom: 1px solid #d1d1d1;
+    padding-bottom: 60px;
+    margin-top: 130px;
+}
+#note-details .container {
+    display: flex;
+}
+
+#note-details #left-side {
+    display: flex;
+}
+
+#note-details #left-side #left {
+    padding-top: 20px;
+}
+
+#note-details #left-side #right {
+    margin-left: 30px;
+
+}
+
+#note-details #left-side #right h3 {
+    font-family: "Open Sans";
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 35px;
+    color: #6255a5;
+}
+
+#note-details #left-side #right h4 {
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #333333;
+}
+
+#note-details #left-side #right p {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #333333;
+}
+
+#note-details #left-side #download-btn {
+    color: #fff;
+    background-color: #6255a5;
+    border-color: #6255a5;
+    width: 150;
+    
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    line-height: 22px;
+   
+}
+#download-btn-2{
+    width: 120px;
+    height: 35px;
+}
+
+#right-side {}
+
+#right-side table td h6 {
+    font-size: 18px;
+    font-family: "Open Sans";
+   
+    line-height: 23px;
+    color: #333333;
+
+}
+#right-side p {
+    margin: 0 70px;
+     font-weight: 500;
+}
+#right-side table td p {
+    font-size: 18px;
+    font-family: "Open Sans";
+    text-align: right;
+    line-height: 23px;
+    color: #6255a5;
+
+}
+#right-side table{
+    margin-left: 60px;
+    margin-top: 10px;
+    width: 100%;
+}
+/*NOTE PREVIEW SECTION*/
+#preview{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    margin-left: 30px;
+}
+#preview .container{
+    margin-top: 30px;
+}
+h2{
+    font-family: "Open Sans";
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #6255a5;
+    margin-left: 100px;
+        
+}
+#Iframe-Cicis-Menu-To-Go{
+    margin: 50px;
+    
+}
+.responsive-wrapper img,
+.responsive-wrapper object,
+.responsive-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 450px;
+   
+ border: 1px solid #d1d1d1;
+  padding: 0;
+  margin: 0;
+}
+#note-reviews{
+    height: 450px;
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+}
+.review-container{
+     border-bottom: 1px solid #d1d1d1;
+}
+.review-container p{
+    font-family: "Open Sans";
+    font-weight: 700;
+    font-size: 16px;
+}
+.review-container h6{
+    font-family: "Open Sans";
+   font-size: 14px;
+    font-weight: 400;
+    color: #333333;    
+}
+.review-container img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px;
+    margin-top: 25px;
+}
+.main-information{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+/*modal css*/
+
+
+
+
+footer{
+    padding: 40px 0;
+    border-top: 1px solid #d1d1d1;
+}
+footer p span {
+    float: right;
+
+}
+
+footer p span .fa {
+    border-radius: 15px;
+    border-color: #6255a5;
+    color: #fff;
+
+    border: 1px solid #6255a5;
+    background-color: #6255a5;
+    height: 18px;
+}
+
+footer p span i {
+    padding: 0 10px 0 10px;
+    margin: 0px 5px;
+}

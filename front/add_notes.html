@@ -11,11 +11,13 @@
     <!--font awesome -->
     <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
     <!--BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
 
     <!--Custom CSS-->
     <link rel="stylesheet" href="css/add_notes.css">
-<link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
 
 
@@ -24,15 +26,25 @@
 
 <body>
     <header>
-        <div class="container">
-            <nav class="navbar navbar-fixed-top">
-                <div class="container-fluid">
-                    <div class="site-nav-wrapper">
-                        <div class="navbar-header">
-                            <!-- mobile menu-->
+        <div class="">
 
-                            <div class="dropdown"><a href="" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span id="mobile-nav-open-btn">&#9776;</span>
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-auto">
+                       
+
+                        <li class="nav-item"><a class="nav-link" href="search_notes.html">Search Notes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="add_notes.html">Sell Your Notes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="buyer_requests">Buyer Request</a> </li>
+                        <li class="nav-item"><a class="nav-link" href="FAQ.html">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact_us.html">Contact Us</a></li>
+                        <li class="">
+                            <div class="dropdown"><a class="nav-link" href="" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="img/images/user-img.png" alt="">
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" href="#">My Profile</a><br>
@@ -43,42 +55,17 @@
                                     <a class="dropdown-item" href="#">Log Out</a>
                                 </div>
                             </div>
+                        </li>
+                        <li class="nav-item"><a class="btn btn-primary" href="" role="button">Log Out</a></li>
 
-                            <a href="#" class="navbar-brand">
-                                <img src="img/logo.png">
-                            </a>
-                        </div>
-                        <div class="container">
-                            <div class="collapse navbar-collapse">
-                                <ul class="nav navbar-nav pull-right">
-                                    <li><a href="search_notes.html">Search Notes</a></li>
-                                    <li><a href="add_notes.html">Sell Your Notes</a></li>
-                                    <li><a href="buyer_requests">Buyer Request</a> </li>
-                                    <li><a href="FAQ.html">FAQ</a></li>
-                                    <li><a href="contact_us.html">Contact Us</a></li>
-                                    <li>
-                                        <div class="dropdown"><a href="" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                               <img src="img/images/user-img.png" alt="">
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item" href="#">My Profile</a><br>
-                                                <a class="dropdown-item" href="#">My Downloads</a><br>
-                                                <a class="dropdown-item" href="#">My Sold Notes</a><br>
-                                                <a class="dropdown-item" href="#">My Rejected Notes</a><br>
-                                                <a class="dropdown-item" href="#">Change Password</a><br>
-                                                 <a class="dropdown-item" href="#">Log Out</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li><a class="btn btn-primary" href="" role="button">Log Out</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+
+                    </ul>
+
                 </div>
             </nav>
         </div>
     </header>
+
 
     <section id="user-section">
         <div class="content-box-lg">
@@ -94,6 +81,38 @@
             </div>
         </div>
     </section>
+
+
+
+    <h1>Popup/Modal Windows without JavaScript</h1>
+    <div id="wrapper">
+        <p><a class="button" href="#popup1">Click Me</a></p>
+        <p><a class="button" href="#popup2">Click Me Too</a></p>
+    </div>
+
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Info box</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <p>This is done totally without JavaScript. Just HTML and CSS.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup2" class="overlay light">
+        <a class="cancel" href="#"></a>
+        <div class="popup">
+            <h2>What the what?</h2>
+            <div class="content">
+                <p>Click outside the popup to close.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <section id="details">
         <div class="content-box-lg">
             <form>
@@ -224,12 +243,12 @@
                         <input type="number" class="form-control" id="sell-price" placeholder="Enter Your Sell price">
                     </div>
                 </div>
-                 <div class="form-row col-md-6">
+                <div class="form-row col-md-12">
 
-                   <a class="btn btn-primary" role="button" href="" id="save">SAVE</a>
+                    <a class="btn btn-primary" role="button" href="" id="save">SAVE</a>
                     <a class="btn btn-primary" role="button" href="" id="publish">PUBLISH</a>
                 </div>
-                
+
         </div>
 
 

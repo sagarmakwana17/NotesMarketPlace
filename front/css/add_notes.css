@@ -1,3 +1,40 @@
+/*popup*/
+/*nav #logo{
+    margin-left: 30px;
+    margin-top: 10px;
+}
+#log-out{
+    width: 100px;
+}*/
+.collapse{
+    padding: 10px 0;
+}
+.nav-item{
+    padding-top: 20px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+     color: #333333;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+
+.nav-item:hover{
+      color: #6255a5 ;
+    background: none;
+    border-bottom: 2px solid #6255a5;
+}
+
+
+
+
+
+
 .content-box-lg {
     padding: 60px 0;
 }
