@@ -1,8 +1,99 @@
+
+
+
+
+
+
+
+
+
+
+
+.form-inline{
+    float: right;
+}
+.form-control{
+    border: 1px solid #d1d1d1;
+}
+
+
+
+
+
+
+
+
+
+
+#logo{
+    border-right:1px solid #6255a5; 
+        
+}
+.middle{
+    margin-top: 35px;
+    padding: 15px;
+   
+}
+.middle1{
+    margin-top: 35px;
+    padding: 15px;
+   
+}
+.middle p{
+     font-family: "Open Sans";
+    font-weight: 600;
+    font-size: 24px;
+    color: #6255a5;
+    line-height: 20px;
+    margin-top: 5px;
+}
+.middle1 p{
+     font-family: "Open Sans";
+    font-weight: 400;
+    font-size: 18px;
+    color: #333333;
+    line-height: 20px;
+    margin-top: 5px;
+}
+.middle1 h2{
+     font-family: "Open Sans";
+    font-weight: 700;
+    font-size: 30px;
+    color: #6255a5;
+    line-height: 20px;
+    margin-top: 5px;
+}
+
+
+.stats{
+     height: 150px;
+    border: 1px solid #6255a5;
+}
+.box{
+   
+     height: 150px;
+    width: 179px;
+}
+.box-s{
+     border: 1px solid #6255a5;
+     height: 150px;
+    width: 160px;
+}
+.earn{
+    border-right: 1px solid #6255a5;
+      height: 150px;
+    width: 179px;
+}
+
+
+
 .content-box-lg {
     padding: 50px 0;
 }
 
-
+#stats{
+    margin-top: 20px;
+}
 
 
 .collapse{

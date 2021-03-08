@@ -108,17 +108,7 @@
     }
 
     /*tables*/
-    .progres th,
-    td {
-        padding: 5px 0px;
-        font-size: 8px;
-    }
-    .table-title p{
-        position: relative;
-    }
-    .progres{
-        width: 500px;
-    }
+    
     /*home section*/
     #left{
         margin-top: 40px;
@@ -132,6 +122,9 @@
     }
     #preview .container{
         display: flex;
+    }
+    #right{
+        position: relative;
     }
    
 }
@@ -152,13 +145,38 @@
     }
 
     /*tables*/
-    .progres {
-        width: 600px;
-    }
-    #progress-notes{
-        margin-top: 150px;
-    }
-    #preview .container{
-        display: flex;
-    }
+    
 }
+
+@media (max-width:998px) {
+
+   .middle1 h2{
+   
+       font-size: 18px;}
+    
+
+       .middle{
+    margin-top: 25px;
+    padding: 5px;
+   
+}
+.middle1{
+    margin-top: 25px;
+    padding: 5px;
+   
+}
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
