@@ -1,0 +1,92 @@
+body {
+    background-image: url("../img/banner-with-overlay.jpg");
+
+}
+
+
+.form-control {
+    width: 450px;
+    height: 50px;
+    
+}
+
+.btn {
+   
+    width: 450px;
+    background-color: #6255a5;
+   margin-bottom: 20px;
+    border-radius: 3px;
+    margin-top: 50px;
+}
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+}
+
+img{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#login-form{
+       margin-top: 25%;
+     background-color: #fff;
+    padding: 30px 50px 10px 50px;
+    margin-bottom: 10px;
+    
+}
+
+h4{
+    font-family: "Open Sans",sans-serif;
+    font-size: 26px;
+    font-weight:600;
+    line-height: 30px;
+    color: #6255a5;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+p {
+    
+    font-family: "Open Sans",sans-serif;
+    font-size: 16px;
+    font-weight:400;
+    line-height: 20px;
+    color: #333333;
+    
+}
+
+label {
+    
+    font-family: "Open Sans",sans-serif;
+    font-size: 15px;
+    font-weight:400;
+    line-height: 19px;
+    color: #333333;
+}
+h6{
+    float:right;
+}
+h5{
+   font-family: "Open Sans",sans-serif;
+    font-size: 18px;
+    font-weight:600;
+    line-height: 18px;
+    color: #333333; 
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

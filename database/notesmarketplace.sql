@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2021 at 05:29 PM
+-- Generation Time: Mar 27, 2021 at 05:17 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -38,6 +38,14 @@ CREATE TABLE `countries` (
   `IsActive` bit(1) NOT NULL DEFAULT b'1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `countries`
+--
+
+INSERT INTO `countries` (`ID`, `Name`, `CountryCode`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`) VALUES
+(1, 'india\r\n', '+91', '2021-03-17 12:35:06', NULL, NULL, NULL, b'1'),
+(2, 'usa', '+1', '2021-03-17 12:35:35', NULL, NULL, NULL, b'1');
+
 -- --------------------------------------------------------
 
 --
@@ -47,7 +55,7 @@ CREATE TABLE `countries` (
 CREATE TABLE `downloads` (
   `ID` int(11) NOT NULL,
   `NoteID` int(11) NOT NULL,
-  `Seller` int(11) NOT NULL,
+  `Seller` int(100) NOT NULL,
   `Downloader` int(11) NOT NULL,
   `IsSellerHasAllowedDownload` bit(1) NOT NULL,
   `AttachmentPath` varchar(255) DEFAULT NULL,
@@ -62,6 +70,24 @@ CREATE TABLE `downloads` (
   `ModifiedDate` datetime DEFAULT NULL,
   `ModifiedBy` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `downloads`
+--
+
+INSERT INTO `downloads` (`ID`, `NoteID`, `Seller`, `Downloader`, `IsSellerHasAllowedDownload`, `AttachmentPath`, `IsAttachmentDownloaded`, `AttachmentDownloadedDate`, `IsPaid`, `PurchasedPrice`, `NoteTitle`, `NoteCategory`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`) VALUES
+(1, 15, 0, 16, b'0', NULL, b'1', NULL, b'0', NULL, '', '', '2021-03-14 12:46:01', NULL, NULL, NULL),
+(7, 16, 16, 16, b'1', NULL, b'1', '2021-03-22 13:57:57', b'1', NULL, 'html', 'SOCIAL STUDIES', '2021-03-22 13:57:57', NULL, NULL, NULL),
+(8, 16, 16, 16, b'1', NULL, b'1', '2021-03-22 13:58:05', b'1', NULL, 'html', 'SOCIAL STUDIES', '2021-03-22 13:58:05', NULL, NULL, NULL),
+(25, 16, 16, 16, b'1', NULL, b'1', '2021-03-22 14:07:19', b'1', NULL, 'html', 'SOCIAL STUDIES', '2021-03-22 14:07:19', NULL, NULL, NULL),
+(26, 16, 16, 16, b'1', NULL, b'1', '2021-03-22 14:34:14', b'1', NULL, 'html', 'SOCIAL STUDIES', '2021-03-22 14:34:14', NULL, NULL, NULL),
+(27, 16, 16, 16, b'1', NULL, b'1', '2021-03-22 14:34:30', b'1', NULL, 'html', 'SOCIAL STUDIES', '2021-03-22 14:34:30', NULL, NULL, NULL),
+(28, 16, 16, 16, b'1', NULL, b'1', '2021-03-22 14:35:52', b'1', NULL, 'html', 'SOCIAL STUDIES', '2021-03-22 14:35:52', NULL, NULL, NULL),
+(29, 15, 2, 15, b'1', NULL, b'1', '2021-03-22 15:47:46', b'1', NULL, 'Bootstrap & Css', 'COMPUTER SCIENCE', '2021-03-22 15:47:46', NULL, NULL, NULL),
+(30, 15, 2, 15, b'1', NULL, b'1', '2021-03-22 15:49:27', b'1', NULL, 'Bootstrap & Css', 'COMPUTER SCIENCE', '2021-03-22 15:49:27', NULL, NULL, NULL),
+(31, 15, 2, 15, b'1', NULL, b'1', '2021-03-22 15:51:08', b'1', NULL, 'Bootstrap & Css', 'COMPUTER SCIENCE', '2021-03-22 15:51:08', NULL, NULL, NULL),
+(33, 15, 2, 15, b'0', NULL, b'0', '2021-03-22 15:53:28', b'1', NULL, 'Bootstrap & Css', 'COMPUTER SCIENCE', '2021-03-22 15:53:28', NULL, NULL, NULL),
+(36, 15, 16, 16, b'1', NULL, b'0', '2021-03-25 12:00:02', b'1', NULL, 'Bootstrap & Css', 'COMPUTER SCIENCE', '2021-03-25 12:00:02', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -85,7 +111,8 @@ CREATE TABLE `notecategories` (
 --
 
 INSERT INTO `notecategories` (`ID`, `Name`, `Description`, `CreatedDate`, `CreatedBy`, `ModifiedDated`, `ModifiedBy`, `IsActive`) VALUES
-(1, 'science', 'scientific notes', '2021-03-05 18:56:41', NULL, NULL, NULL, b'1');
+(15, 'science', 'scientific notes', '2021-03-05 18:56:41', NULL, NULL, NULL, b'1'),
+(17, 'computer', 'computer science ', '2021-03-10 21:45:32', NULL, NULL, NULL, b'1');
 
 -- --------------------------------------------------------
 
@@ -109,8 +136,8 @@ CREATE TABLE `notetypes` (
 --
 
 INSERT INTO `notetypes` (`ID`, `Name`, `Description`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`) VALUES
-(1, 'free', 'free', '2021-03-05 19:04:00', NULL, NULL, NULL, b'1'),
-(2, 'paid', 'paid', '2021-03-05 19:04:56', NULL, NULL, NULL, b'1');
+(15, 'printed', 'printed', '2021-03-05 19:04:56', NULL, NULL, NULL, b'1'),
+(17, 'handwritten', 'printed', '2021-03-10 21:44:32', NULL, NULL, NULL, b'1');
 
 -- --------------------------------------------------------
 
@@ -135,7 +162,10 @@ CREATE TABLE `referencedata` (
 --
 
 INSERT INTO `referencedata` (`ID`, `value`, `DataValue`, `RefCategory`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`) VALUES
-(1, 'inreview', 'inreview', 'inreview', '2021-03-05 18:49:11', NULL, NULL, NULL, b'1');
+(1, 'inreview', 'inreview', 'inreview', '2021-03-05 18:49:11', NULL, NULL, NULL, b'1'),
+(2, '', '', 'draft', '2021-03-08 13:25:57', NULL, NULL, NULL, b'1'),
+(15, '', '', 'submitted', '2021-03-08 13:27:03', NULL, NULL, NULL, b'1'),
+(17, '', '', 'draft', '2021-03-10 21:46:15', NULL, NULL, NULL, b'1');
 
 -- --------------------------------------------------------
 
@@ -146,22 +176,22 @@ INSERT INTO `referencedata` (`ID`, `value`, `DataValue`, `RefCategory`, `Created
 CREATE TABLE `sellernotes` (
   `ID` int(11) NOT NULL,
   `SellerID` int(11) NOT NULL,
-  `Status` int(11) NOT NULL,
+  `Status` varchar(15) DEFAULT NULL,
   `ActionedBy` int(11) DEFAULT NULL,
   `AdminRemarks` varchar(255) DEFAULT NULL,
   `PublishedDate` datetime DEFAULT NULL,
   `Title` varchar(100) NOT NULL,
-  `Category` int(11) NOT NULL,
+  `Category` varchar(30) DEFAULT NULL,
   `DisplayPicture` varchar(500) DEFAULT NULL,
-  `NoteType` int(11) DEFAULT NULL,
+  `NoteType` varchar(20) DEFAULT NULL,
   `NumberofPages` int(11) DEFAULT NULL,
   `Description` varchar(255) NOT NULL,
   `UniversityName` varchar(200) DEFAULT NULL,
-  `Country` int(11) DEFAULT NULL,
+  `Country` varchar(50) DEFAULT NULL,
   `Course` varchar(100) DEFAULT NULL,
   `CourseCode` varchar(100) DEFAULT NULL,
   `Professor` varchar(100) DEFAULT NULL,
-  `IsPaid` bit(1) NOT NULL,
+  `IsPaid` varchar(10) NOT NULL,
   `SellingPrice` decimal(10,0) DEFAULT NULL,
   `NotesPreview` varchar(255) DEFAULT NULL,
   `CreatedDate` datetime DEFAULT current_timestamp(),
@@ -176,7 +206,9 @@ CREATE TABLE `sellernotes` (
 --
 
 INSERT INTO `sellernotes` (`ID`, `SellerID`, `Status`, `ActionedBy`, `AdminRemarks`, `PublishedDate`, `Title`, `Category`, `DisplayPicture`, `NoteType`, `NumberofPages`, `Description`, `UniversityName`, `Country`, `Course`, `CourseCode`, `Professor`, `IsPaid`, `SellingPrice`, `NotesPreview`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`) VALUES
-(15, 2, 1, NULL, NULL, NULL, 'Bootstrap & Css', 1, '', 0, 4, 'this course is for bootstrap & css', 'BVM', 0, 'bootstrap', '306', 'prof shah', b'1', '80', 'uploads/notes_uploaded/bet report.pdf', '2021-03-05 19:09:07', NULL, NULL, NULL, b'1');
+(15, 2, NULL, NULL, NULL, NULL, 'Bootstrap & Css', 'COMPUTER SCIENCE', '', 'printed', 4, 'this course is for bootstrap & css', 'BVM', 'usa', 'php', '306', 'prof shah', 'yes', '80', 'uploads/notes_uploaded/bet report.pdf', '2021-03-05 19:09:07', NULL, NULL, NULL, b'1'),
+(16, 2, NULL, NULL, NULL, NULL, 'html', 'SOCIAL STUDIES', '', 'printed', 552, 'this course is for bootstrap & css', 'msu', 'uk', 'javascript', 'hgsj44', 'prof shah', 'no', '15', 'uploads/notes_uploaded/bet report.pdf', '2021-03-08 14:56:36', NULL, NULL, NULL, b'1'),
+(17, 2, 'rejected', NULL, NULL, NULL, 'Data Structure', 'science', '', 'handwritten', 454, 'hello', 'gtu', 'india', 'php', '545', 'jghsgj', 'no', '50', 'uploads/notes_uploaded/bet report.pdf', '2021-03-09 11:53:02', NULL, '2021-03-10 22:06:49', NULL, b'1');
 
 -- --------------------------------------------------------
 
@@ -234,6 +266,13 @@ CREATE TABLE `sellernotesreviews` (
   `IsActive` bit(1) NOT NULL DEFAULT b'1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `sellernotesreviews`
+--
+
+INSERT INTO `sellernotesreviews` (`ID`, `NoteID`, `ReviewedByID`, `AgainstDownloadsID`, `Ratings`, `Comments`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`) VALUES
+(1, 15, 1, 1, '2', '', '2021-03-14 12:46:48', NULL, NULL, NULL, b'1');
+
 -- --------------------------------------------------------
 
 --
@@ -279,6 +318,14 @@ CREATE TABLE `userprofile` (
   `ModifiedDate` datetime DEFAULT NULL,
   `ModifiedBy` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `userprofile`
+--
+
+INSERT INTO `userprofile` (`ID`, `UserID`, `DOB`, `Gender`, `SecondaryEmailAddress`, `PhoneNumber_CountryCode`, `PhoneNumber`, `ProfilePicture`, `AddressLine1`, `AddressLine2`, `City`, `State`, `ZipCode`, `Country`, `University`, `College`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`) VALUES
+(1, 16, NULL, NULL, NULL, '', '545454545', NULL, '', '', '', '', '', '', NULL, NULL, '2021-03-26 12:51:22', NULL, NULL, NULL),
+(4, 15, '0000-00-00 00:00:00', 0, 'abcd@gmail.com', '91', '9099826577', '', 'bjhjh', 'hjjhjh', 'ghgh', 'sdsd', '6', 'hjhjh', 'dsdsds', 'dsdsdsds', '2021-03-27 13:32:46', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -333,9 +380,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`ID`, `RoleID`, `FirstName`, `LastName`, `EmailID`, `Password`, `IsEmailVerified`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`, `vkey`) VALUES
 (1, 1, 'sagar', 'makwana', 'abc@gmail.com', '123', b'0', '2021-02-16 15:09:18', NULL, NULL, NULL, b'1', '2fcd3a8bcb6fd2160b3bff4f3ec1dbbc'),
-(15, 2, 'malhar', 'mak', 'a@gmail.com', 'Sagar@17', b'1', '2021-02-28 22:49:50', NULL, NULL, NULL, b'1', '2fcd3a8bcb6fd2160b3bff4f3ec1dbbc'),
-(16, 2, 'malhar', 'mak', 'abcd@gmail.com', 'Sagar@17', b'1', '2021-02-28 23:29:38', NULL, NULL, NULL, b'1', '2fcd3a8bcb6fd2160b3bff4f3ec1dbbc'),
-(18, 2, 'akash', 'makwana', 'skywalker4073@gmail.com', '3049', b'1', '2021-03-02 12:56:26', NULL, NULL, NULL, b'1', 'd8eb567c6bf5ad833dc375f92276ee07');
+(15, 2, 'malhar', 'mak', 'a@gmail.com', 'Akash@17', b'1', '2021-02-28 22:49:50', NULL, NULL, NULL, b'1', '2fcd3a8bcb6fd2160b3bff4f3ec1dbbc'),
+(16, 2, 'malhar', 'mak', 'abcd@gmail.com', 'Sagar@17', b'1', '2021-02-28 23:29:38', NULL, NULL, NULL, b'1', '2fcd3a8bcb6fd2160b3bff4f3ec1dbbc');
 
 --
 -- Indexes for dumped tables
@@ -353,7 +399,6 @@ ALTER TABLE `countries`
 ALTER TABLE `downloads`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `NoteID` (`NoteID`),
-  ADD KEY `Seller` (`Seller`),
   ADD KEY `Downloader` (`Downloader`);
 
 --
@@ -380,11 +425,7 @@ ALTER TABLE `referencedata`
 ALTER TABLE `sellernotes`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `SellerID` (`SellerID`),
-  ADD KEY `Status` (`Status`),
-  ADD KEY `ActionedBy` (`ActionedBy`),
-  ADD KEY `Category` (`Category`),
-  ADD KEY `NoteType` (`NoteType`),
-  ADD KEY `Country` (`Country`);
+  ADD KEY `ActionedBy` (`ActionedBy`);
 
 --
 -- Indexes for table `sellernotesattachements`
@@ -447,37 +488,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `downloads`
 --
 ALTER TABLE `downloads`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `notecategories`
 --
 ALTER TABLE `notecategories`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `notetypes`
 --
 ALTER TABLE `notetypes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `referencedata`
 --
 ALTER TABLE `referencedata`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `sellernotes`
 --
 ALTER TABLE `sellernotes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `sellernotesattachements`
@@ -495,7 +536,7 @@ ALTER TABLE `sellernotesreportedissues`
 -- AUTO_INCREMENT for table `sellernotesreviews`
 --
 ALTER TABLE `sellernotesreviews`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `systemconfigurations`
@@ -507,7 +548,7 @@ ALTER TABLE `systemconfigurations`
 -- AUTO_INCREMENT for table `userprofile`
 --
 ALTER TABLE `userprofile`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `userroles`
@@ -519,7 +560,7 @@ ALTER TABLE `userroles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
@@ -530,7 +571,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `downloads`
   ADD CONSTRAINT `downloads_ibfk_1` FOREIGN KEY (`NoteID`) REFERENCES `sellernotes` (`ID`),
-  ADD CONSTRAINT `downloads_ibfk_2` FOREIGN KEY (`Seller`) REFERENCES `users` (`ID`),
   ADD CONSTRAINT `downloads_ibfk_3` FOREIGN KEY (`Downloader`) REFERENCES `users` (`ID`);
 
 --
@@ -559,8 +599,7 @@ ALTER TABLE `sellernotesreviews`
 -- Constraints for table `userprofile`
 --
 ALTER TABLE `userprofile`
-  ADD CONSTRAINT `userprofile_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `users` (`ID`),
-  ADD CONSTRAINT `userprofile_ibfk_2` FOREIGN KEY (`Gender`) REFERENCES `referencedata` (`ID`);
+  ADD CONSTRAINT `userprofile_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `users` (`ID`);
 
 --
 -- Constraints for table `users`

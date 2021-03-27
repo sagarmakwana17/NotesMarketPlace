@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--meta tags-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!--font awesome -->
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <!--BOOTSTRAP CSS-->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="css/add_category.css"> 
+    <link rel="stylesheet" href="css/responsive.css">
+
+
+
+    <title>add category</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="site-nav-wrapper">
+                        <div class="navbar-header">
+                            <!-- mobile menu-->
+
+                            <div class="dropdown"><a href="" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span id="mobile-nav-open-btn">&#9776;</span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="dashboard.html">Dashboard</a><br>
+                                    <a class="dropdown-item" href="notes_under_review.html">Notes</a><br>
+                                    <a class="dropdown-item" href="members.html">Members</a><br>
+                                    <a class="dropdown-item" href="spam_reports.html">Reports</a><br>
+                                    <a class="dropdown-item" href="configuration.html">Settings</a><br>
+                                    <a class="dropdown-item" href="my_profile.html">My Profile</a><br>
+                                    <a class="dropdown-item" href="login.html">Log Out</a>
+                                </div>
+                            </div>
+
+                            <a href="#" class="navbar-brand">
+                                <img src="img/logo.png">
+                            </a>
+                        </div>
+                        <div class="container">
+                            <div class="collapse navbar-collapse">
+                                 <ul class="nav navbar-nav pull-right">
+                                    <li><a href="dashboard.html">Dashboard</a></li>
+                                    <li><a href="notes_under_review.html">Notes</a></li>
+                                    <li><a href="members.html">Members</a> </li>
+                                    <li><a href="spam_reports.html">Reports</a></li>
+                                    <li><a href="configuration.html">Settings</a></li>
+                                    <li>
+                                        <div class="dropdown"><a href="" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <img src="img/images/user-img.png" alt="">
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="my_profile.html">Update Profile</a><br>
+                                                <a class="dropdown-item" href="change_password.html">Change Password</a><br>
+                                                <a class="dropdown-item" href="login.html">Log Out</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><a class="btn btn-primary" href="login.html" role="button">Log Out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <section id="details">
+        <div class="content-box-lg">
+            <form>
+                <div class="container">
+                    <h3>Add Category</h3>
+
+                    <div class="form-group col-md-12">
+                        <label for="first-name">Category name*</label>
+                        <input type="text" class="form-control" id="first-name" placeholder="Enter your firstname">
+                    </div>
+                    <div class="input-group col-md-6 form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Description*</span>
+                        </div>
+                        <textarea class="form-control" id="description" aria-label="With textarea" placeholder="Enter your description"></textarea>
+                    </div>
+
+                    <a class="btn btn-primary" href="" role="button" id="last_button">SUBMIT</a>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer class="footer1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>version:1.1.24<span>Copyright &copy; Tatvasoft All Rights reserved</span></p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+
+
+    <!-- JQUERY JS-->
+    <script src="js/jquery-3.5.1.js"></script>
+    <!--Bootstrap js-->
+    <script src="js/bootstrap.min.js"></script>
+    <!--Custom js-->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
