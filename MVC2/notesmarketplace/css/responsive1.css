@@ -169,6 +169,14 @@
     
 }
 
+@media (max-width:998px) {
+
+    .labels{
+        margin-left : 200px !important;
+    }
+   
+}
+
 
 
 

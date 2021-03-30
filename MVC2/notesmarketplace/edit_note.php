@@ -63,14 +63,14 @@ require_once __DIR__ . '/src/SMTP.php';
                             <div class="dropdown"><a class="nav-link" href="" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <img src="img/images/user-img.png" alt="">
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">My Profile</a><br>
-                                    <a class="dropdown-item" href="#">My Downloads</a><br>
-                                    <a class="dropdown-item" href="#">My Sold Notes</a><br>
-                                    <a class="dropdown-item" href="#">My Rejected Notes</a><br>
-                                    <a class="dropdown-item" href="#">Change Password</a><br>
-                                    <a class="dropdown-item" href="#">Log Out</a>
-                                </div>
+                               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">My Profile</a>
+                                        <a class="dropdown-item" href="my_downloads.php?<?php echo'user_id='.$user_id; ?>">My Downloads</a>
+                                        <a class="dropdown-item" href="my_sold_notes.php?<?php echo'user_id='.$user_id; ?>">My Sold Notes</a>
+                                        <a class="dropdown-item"  href="my_rejected_notes.php?<?php echo'user_id='.$user_id; ?>">My Rejected Notes</a>
+                                        <a class="dropdown-item" href="change_password.php?<?php echo'user_id='.$user_id; ?>">Change Password</a>
+                                        <a class="dropdown-item" href="logout.php">Log out</a>
+                                    </div>
                             </div>
                         </li>
                         <li class="nav-item"><a class="btn btn-primary" href="" role="button">Log Out</a></li>

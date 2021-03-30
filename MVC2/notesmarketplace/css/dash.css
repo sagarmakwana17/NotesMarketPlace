@@ -163,22 +163,7 @@ a {
     border-bottom: 2px solid #6255a5;
 }
 
-/* dropdown css*/
-.dropdown {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-}
 
-.dropdown-menu a {
-    padding: 0px 5px;
-    margin: 20px 0;
-}
-
-.dropdown-menu a:hover {
-    background-color: #6255a5;
-    color: white;
-}
 
 .nav > li > a {
     position: relative;
@@ -286,7 +271,7 @@ a {
    
     margin-top: 40px;
     border: 1px solid #d1d1d1;
-    width: 1150px;
+    width: 1100px;
 }
 
 .progres tr {
@@ -359,24 +344,4 @@ td {
 
 
 
-footer {
-    padding: 40px 0;
-}
 
-footer p span {
-    float: right;
-}
-
-footer p span .fa {
-    border-radius: 15px;
-    border-color: #6255a5;
-    color: #fff;
-    border: 1px solid #6255a5;
-    background-color: #6255a5;
-    height: 18px;
-}
-
-footer p span i {
-    padding: 0 10px 0 10px;
-    margin-left: 10px;
-}

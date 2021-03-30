@@ -2,30 +2,80 @@
 session_start();
 include"includes/database.php";
 ?>
- 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <!--meta tags-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+ <!DOCTYPE html>
+ <html lang="en">
 
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!--font awesome -->
-    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
-    <!--BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
-    <!--Custom CSS-->
-    <link rel="stylesheet" href="css/login2.css">
-    <title>Login</title>
-</head>
+ <head>
+     <!--meta tags-->
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
 
-<body>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+     <!--font awesome -->
+     <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+     <!--BOOTSTRAP CSS-->
+     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+     <!--Custom CSS-->
+     <link rel="stylesheet" href="css/login2.css">
+     <link rel="stylesheet" href="css/responsive1.css">
+     <title>Login</title>
+ </head>
 
-    <center>
-        <div class="col-lg-5">
-            <img src="img/top-logo.png">
+ <body>
+     <style>
+        
+        
+         @media (min-width: 555px) and (max-width: 998px) {
+             .labels {
+                 margin-left: 150px !important;
+             }
+
+         }
+          @media (min-width: 1388px)and (max-width: 1600px){
+             .labels {
+                 margin-left: 50px !important;
+             }
+
+
+         }
+          @media (min-width: 1600px)and (max-width: 1800px){
+             .labels {
+                 margin-left: 80px !important;
+             }
+              .form-check{
+                  margin-left: 50px !important;
+              }
+
+
+         }
+         @media (min-width: 1800px)and (max-width: 2000px){
+             .labels {
+                 margin-left: 100px !important;
+             }
+             .form-check{
+                  margin-left: 50px !important;
+              }
+
+
+         }
+          @media (min-width: 2000px)and (max-width: 2300px){
+             .labels {
+                 margin-left: 170px !important;
+             }
+              .form-check{
+                  margin-left: 120px !important;
+              }
+
+
+         }
+         
+
+
+     </style>
+     <center>
+         <div class="col-lg-5">
+             <img src="img/top-logo.png">
              <?php
                     ob_start();
                     if(isset($_POST['login'])){
@@ -60,10 +110,11 @@ include"includes/database.php";
                         {
                           /* header("Location : https://localhost/NotesMarketPlace/front/home.php");*/
                              ?>
-                             <script>
-                                    location.replace('../admin/dashboard.html');
-                            </script>
-                       <?php
+             <script>
+                 location.replace('../admin/dashboard.html');
+
+             </script>
+             <?php
                         }
                          else if($email == $db_email_id &&  $password !==$db_password)
                          {
@@ -74,20 +125,22 @@ include"includes/database.php";
                             $_SESSION['full_name'] = $db_first_name." ".$db_last_name;
                               $_SESSION['user_id'] = $db_id;
                          ?>
-                             <script>
-                                    location.replace('dashboard.php?user_id=<?php echo $db_id; ?>');
-                            </script>
-                         <?php
+             <script>
+                 location.replace('dashboard.php?user_id=<?php echo $db_id; ?>');
+
+             </script>
+             <?php
                               
                         }
                          else if($email == $db_email_id &&  $password ==$db_password && $db_role_id=='2' && $is_email_verified ==0 ){
                              $_SESSION['email'] = $db_email_id;
                               $_SESSION['login_first_name'] =  $db_first_name
                          ?>
-                             <script>
-                                    location.replace('email_validation.php');
-                            </script>
-                         <?php
+             <script>
+                 location.replace('email_validation.php');
+
+             </script>
+             <?php
                               
                         }
                         
@@ -96,24 +149,24 @@ include"includes/database.php";
                 
                       ?>
 
-            <form class="" id="login-form" method="post" action="login.php">
-                <h4>Login</h4>
-                <p>Enter your email address and password to login</p>
-             
-                <div class="form-group">
-                    <div style="margin-left: 0px !important; text-align:left !important">
-                        <label for="exampleInputEmail1">Email</label>
-                    </div>
-                    <input type="email" class="form-control" id="email" placeholder="email address" name="email">
-                </div>
-                <div class="form-group">
-                    <div style="margin-left: 0px !important; text-align:left !important">
-                        <label for="exampleInputPassword1">Password </label>
-                    </div>
-                    <input type="password" class="form-control" id="password-field" placeholder="Password" value="" name="password">
-                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                    <p style="margin-left: 0px !important; text-align:left !important; color:red">
-                    <?php
+             <form class="" id="login-form" method="post" action="login.php">
+                 <h4>Login</h4>
+                 <p>Enter your email address and password to login</p>
+
+                 <div class="form-group">
+                     <div style=" text-align:left !important" class="labels">
+                         <label for="exampleInputEmail1">Email</label>
+                     </div>
+                     <input type="email" class="form-control" id="email" placeholder="email address" name="email">
+                 </div>
+                 <div class="form-group">
+                     <div style="text-align:left !important" class="labels">
+                         <label for="exampleInputPassword1">Password </label>
+                     </div>
+                     <input type="password" class="form-control" id="password-field" placeholder="Password" value="" name="password">
+                     <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                     <p style="text-align:left !important; color:red" class="labels">
+                         <?php
                         if(isset($password_error)){
                             echo $password_error;
                             
@@ -122,45 +175,37 @@ include"includes/database.php";
                             echo $emailid_error;
                         }
                     ?>
-                    </p>
-                    
-                    <h6><a href="forgot_password.php">forgot password?</a></h6>
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <div style="margin-left: 0px !important; text-align:left !important">
-                        <label class="form-check-label" for="exampleCheck1">Remember me</label>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary" name="login">LOGIN</button>
-                <p>Don't have an account?<a href="sign_up.php"> Sign Up</a></p>
-            </form>
-        </div>
+                     </p>
+
+                     <h6><a href="forgot_password.php">forgot password?</a></h6>
+                 </div>
+                 <div class="form-group form-check">
+                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                     <div style="text-align:left !important" class="">
+                         <label class="form-check-label" for="exampleCheck1">Remember me</label>
+
+                     </div>
+                 </div>
+                 <button type="submit" class="btn btn-primary" name="login">LOGIN</button>
+                 <p>Don't have an account?<a href="sign_up.php"> Sign Up</a></p>
+             </form>
+         </div>
 
 
-    </center>
-
-
-
-
-
-    <!-- JQUERY JS-->
-    <script src="js/jquery-3.5.1.js"></script>
-    <!--Bootstrap js-->
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!--Custom js-->
-    <script src="js/script.js"></script>
-</body>
-
-</html>
+     </center>
 
 
 
 
 
+     <!-- JQUERY JS-->
+     <script src="js/jquery-3.5.1.js"></script>
+     <!--Bootstrap js-->
+     <!-- JavaScript Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <!--Custom js-->
+     <script src="js/script.js"></script>
+ </body>
 
-
-
-
+ </html>

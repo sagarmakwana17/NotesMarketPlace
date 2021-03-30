@@ -64,11 +64,11 @@ if(isset($_GET['user_id'])){
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                         <a class="dropdown-item" href="#">My Profile</a>
-                                        <a class="dropdown-item" href="#">My Downloads</a>
-                                        <a class="dropdown-item" href="#">My Sold Notes</a>
-                                        <a class="dropdown-item" href="#">My Rejected Notes</a>
+                                        <a class="dropdown-item" href="my_downloads.php?<?php echo'user_id='.$user_id; ?>">My Downloads</a>
+                                        <a class="dropdown-item" href="my_sold_notes.php?<?php echo'user_id='.$user_id; ?>">My Sold Notes</a>
+                                        <a class="dropdown-item"  href="my_rejected_notes.php?<?php echo'user_id='.$user_id; ?>">My Rejected Notes</a>
                                         <a class="dropdown-item" href="change_password.php?<?php echo'user_id='.$user_id; ?>">Change Password</a>
-                                        <a class="dropdown-item" href="#">Log out</a>
+                                        <a class="dropdown-item" href="logout.php">Log out</a>
                                     </div>
                                 </div>
 
@@ -232,20 +232,18 @@ if(isset($_GET['user_id'])){
                                             <div class="title">
                                                 <h4>Add Review</h4>
                                             </div>
-                                           <?php
-                                                if(isset($_POST['submit'])){
+                                          <?php
+                                                if(isset($_POST['submit_review'])){
                                                     $rating = $_POST['rate'];
                                                     $comment = $_POST['comment'];
-                                                    $query = "SELECT * FROM sellernotesreviews WHERE NoteID=$note_id && ReviewedByID = $user_id && AgainstDownloadsID = $download_id";
-                                                    $fetch_reviews = mysqli_query($connection,$query);
-                                                    if(!$fetch_reviews){
-                                                        die(mysqli_error($connection));
-                                                    }
-                                                    if(mysqli_num_rows($fetch_reviews) == 0){
-                                                        $insert_review = "INSERT INTO sellernotesreviews(NoteID,ReviewedByID,AgainstDownloadsID,Ratings,Comments,CreatedDate) VALUES($note_id,$user_id,$download_id,$rating,$comment,now()) ";
-                                                    }
+                                                    $d_id = $download_id;
+                                                    $u_id = $user_id;
+                                                    $n_id = $note_id; 
+                                                   
+                                                   
                                                 }
                                             ?>
+
                                             <form action="" method="post">
                                                 <div class="ratings col-md-12">
                                                     <div class="rate">
@@ -270,7 +268,7 @@ if(isset($_GET['user_id'])){
                                                     </div>
                                                     
                                                 </div>
-                                                 <button type="submit" class="btn btn-primary" name="submit" id="review_submit">SUBMIT</button>
+                                                 <button type="submit" class="btn btn-primary" name="submit_review" id="review_submit">SUBMIT</button>
 
                                             </form>
                                         </div>
@@ -450,9 +448,25 @@ if(isset($_GET['user_id'])){
 
     </section>
 
-    <!--modal for add review-->
-
-
+    <!--INSERT REVIEW QUERY-->
+                                         <?php
+                                                if(isset($_POST['submit_review'])){
+                                                    
+                                                    $query2 = "SELECT * FROM sellernotesreviews WHERE NoteID=$note_id && ReviewedByID = $u_id AND AgainstDownloadsID = $d_id";
+                                                    $fetch_reviews = mysqli_query($connection,$query2);
+                                                    if(!$fetch_reviews){
+                                                        die(mysqli_error($connection));
+                                                    }
+                                                    if(mysqli_num_rows($fetch_reviews) == 0){
+                                                        $insert_review = "INSERT INTO sellernotesreviews(NoteID,ReviewedByID,AgainstDownloadsID,Ratings,Comments,CreatedDate) VALUES($n_id,$u_id,$d_id,$rating,'$comment',now()) ";
+                                                        $insert_query = mysqli_query($connection,$insert_review);
+                                                        if(!$insert_query){
+                                                            die(mysqli_error($connection));
+                                                        }
+                                                    }
+                                                }
+                                            ?>
+                                         
 
     <footer>
         <div class="container">

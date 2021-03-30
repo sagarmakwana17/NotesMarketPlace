@@ -37,8 +37,8 @@ if(isset($_GET['user_id'])){
 </head>
 
 <body>
-    
-  
+
+
 
     <header>
         <div class="container">
@@ -66,17 +66,17 @@ if(isset($_GET['user_id'])){
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                         <a class="dropdown-item" href="#">My Profile</a>
-                                        <a class="dropdown-item" href="#">My Downloads</a>
-                                        <a class="dropdown-item" href="#">My Sold Notes</a>
-                                        <a class="dropdown-item" href="#">My Rejected Notes</a>
+                                        <a class="dropdown-item" href="my_downloads.php?<?php echo'user_id='.$user_id; ?>">My Downloads</a>
+                                        <a class="dropdown-item" href="my_sold_notes.php?<?php echo'user_id='.$user_id; ?>">My Sold Notes</a>
+                                        <a class="dropdown-item"  href="my_rejected_notes.php?<?php echo'user_id='.$user_id; ?>">My Rejected Notes</a>
                                         <a class="dropdown-item" href="change_password.php?<?php echo'user_id='.$user_id; ?>">Change Password</a>
-                                        <a class="dropdown-item" href="#">Log out</a>
+                                        <a class="dropdown-item" href="logout.php">Log out</a>
                                     </div>
                                 </div>
 
 
                             </li>
-                            <li class="nav-item"><a class="btn btn-primary" href="" role="button">Log Out</a></li>
+                            <li class="nav-item"><a class="btn btn-primary" href="logout.php" role="button">Log Out</a></li>
 
                         </ul>
                     </div>
@@ -96,14 +96,14 @@ if(isset($_GET['user_id'])){
                         <p>Buyer Requests</p>
                     </div>
                     <div class="col-6">
-                        <div class="col-6">
-                        <form class="form-inline" method="post" action="">
+                       
+                            <form class="form-inline">
 
-                            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search" name="search" required>
+                                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search">
 
-                            <button type="submit" class="btn btn-primary mb-2" name="submit">Search</button>
-                        </form>
-                    </div>
+                                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                            </form>
+                       
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -122,23 +122,39 @@ if(isset($_GET['user_id'])){
                             <th></th>
                             <th></th>
                         </tr>
-             <?php
+                        <?php
+                         if(isset($_GET['page'])){
+                            $page = $_GET['page'];
+                            $page =mysqli_real_escape_string($connection,$page);
+                            $page = htmlentities($page);
+                            }
+                            else{
+                                $page = 1;
+                            }    
+                            $num_per_page = 5;
+                            $start_from = ($page-1) * $num_per_page;
                         
-                        
-                    if(isset($_POST['submit'])){
+                         if(isset($_POST['submit'])){
                             $search = $_POST['search'];
                             
                             
-                         $query = "SELECT d.*, s.Title, s.Category, s.IsPaid, s.SellingPrice FROM downloads AS d JOIN sellernotes AS s ON d.NoteID = s.ID  WHERE d.Seller = $user_id && d.IsSellerHasAllowedDownload = 0  AND s.Title LIKE '{$search}%'";
+                             $query = "SELECT d.*, s.Title, s.Category, s.IsPaid, s.SellingPrice FROM downloads AS d JOIN sellernotes AS s ON d.NoteID = s.ID  WHERE d.Seller = $user_id && d.IsSellerHasAllowedDownload = 0  AND s.Title LIKE '{$search}%'";
 
-                        }else{
-                     $query = "SELECT d.*, s.Title, s.Category, s.IsPaid, s.SellingPrice FROM downloads AS d JOIN sellernotes AS s ON d.NoteID = s.ID  WHERE d.Seller = $user_id && d.IsSellerHasAllowedDownload = 0 ";
-                    }
+                            }else{
+                             
+                            $query = "SELECT d.*, s.Title, s.Category, s.IsPaid, s.SellingPrice FROM downloads AS d JOIN sellernotes AS s ON d.NoteID = s.ID  WHERE d.Seller = $user_id && d.IsSellerHasAllowedDownload = 0 ";
+                            }
+                        
                     $buyer_requests = mysqli_query($connection,$query);
 
                         if(!$buyer_requests){
                             die(mysqli_error($connection));
-                        }                    
+                        }
+                          $total_records = mysqli_num_rows($buyer_requests); 
+                         $total_pages = ceil($total_records / $num_per_page);
+                        $i=1;
+                        $k=  $num_per_page + $start_from;
+                        $srno = 1;
                          $count = 0;
                         while($row = mysqli_fetch_assoc($buyer_requests)){
                              $count = $count + 1;
@@ -159,12 +175,13 @@ if(isset($_GET['user_id'])){
                                     $email = $seller_info['EmailID'];
                                     $num = $seller_info['PhoneNumber'];
                                 }
+                            if($start_from<$i){
 
 
                     ?>
                         <tr>
                             <td>
-                                <?php echo $count; ?>
+                                <?php echo $srno; ?>
                             </td>
                             <td><?php echo $row['Title']; ?></td>
                             <td><?php echo $row['Category']; ?></td>
@@ -193,8 +210,13 @@ if(isset($_GET['user_id'])){
 
 
                         <?php                        
-    }                        
-?>
+                        }
+                             $i++;
+                                if($i>$k){
+                                    break;
+                                }
+                        }
+                    ?>
 
                         <tr>
                             <td>1</td>
@@ -226,20 +248,28 @@ if(isset($_GET['user_id'])){
                     </table>
                 </div>
 
-                <nav aria-label="Page navigation example">
+                <nav aria-label="Page navigation example" id="pagination">
                     <ul class="pagination d-flex justify-content-center">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
+                        <li class="page-item  <?php if($page == 1){ echo 'disabled'; }?>">
+                            <a class="page-link" href="buyer_requests.php?page=<?php echo $page-1; ?>" aria-label="Previous">
                                 <span aria-hidden="true">&#60;</span>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <?php 
+                            for($i=1;$i<=$total_pages;$i++){
+                        ?>
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
+                            <a class="page-link <?php if($page == $i) { echo 'active'; }?>" href="buyer_requests.php?page=<?php echo $i ; ?>"><?php echo $i ;?></a>
+                        </li>
+                        <?php 
+                            }
+                        ?>
+
+
+
+
+                        <li class="page-item <?php if($page == $total_pages){ echo 'disabled'; }?>">
+                            <a class="page-link" href="buyer_requests.php?page=<?php echo $page-1; ?>" aria-label="Next">
                                 <span aria-hidden="true">&#62;</span>
                             </a>
                         </li>

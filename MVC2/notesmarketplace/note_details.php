@@ -371,17 +371,86 @@ include"includes/database.php";
     </section>
 
 
-    <footer class="footer1">
+    <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <p>Copyright &copy; Tatvasoft All Rights reserved<span><a href=""><i class="fa fa-facebook"> </i></a><a href=""><i class="fa fa-twitter"> </i></a><a href=""><i class="fa fa-instagram"></i></a></span></p>
+                <!-- Copyright -->
+                <div class="col-md-6 col-sm-8 foot-text text-left">
+                    <p>Copyright &copy; TatvaSoft All Rights Reserved.</p>
+                </div>
+                <!-- Social Icon -->
+                <div class="col-md-6 col-sm-4 foot-icon col-sm-4 text-right">
+                    <ul class="social-list">
+                        <li>
+                            <a href="#">
+                                <img src="img/images/facebook.png" alt="facebook-image">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/images/twitter.png" alt="twitter-image">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/images/linkedin.png" alt="linkedin-image">
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-
     </footer>
+    <style>
+        hr {
+            margin: 0;
+            margin-top: 60px;
+        }
 
+        .foot-text p {
+            margin: 40px 0;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+            color: #333333;
+        }
+
+        .social-list {
+            margin: 30px 0;
+        }
+
+        ul.social-list {
+            padding: 0;
+        }
+
+        ul.social-list li {
+            display: inline-block;
+            padding: 0;
+        }
+
+        ul.social-list li a {
+            text-align: center;
+            background-color: #6255a5;
+            border: 1px solid #6255a5;
+            width: 36px;
+            height: 36px;
+            display: inline-block;
+            line-height: 30px;
+            color: white;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            transition: all 400ms linear;
+            -webkit-transition: all 400ms linear;
+            -moz-transition: all 400ms linear;
+            -ms-transition: all 400ms linear;
+            -o-transition: all 400ms linear;
+        }
+
+    </style>
 
 
 

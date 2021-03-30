@@ -40,14 +40,13 @@ include"includes/database.php";
                                 <div class="dropdown"><a href="" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span id="mobile-nav-open-btn">&#9776;</span>
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Search Notes</a><br>
-                                        <a class="dropdown-item" href="#">Sell Your Notes</a><br>
-                                        <a class="dropdown-item" href="#">Buyer Requests</a><br>
-                                        <a class="dropdown-item" href="#">FAQ</a><br>
-                                        <a class="dropdown-item" href="#">Contact Us</a><br>
-                                        <a class="dropdown-item" href="#">My Profile</a><br>
-                                        <a class="dropdown-item" href="#">Log Out</a>
+                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">My Profile</a>
+                                        <a class="dropdown-item" href="my_downloads.php?<?php echo'user_id='.$user_id; ?>">My Downloads</a>
+                                        <a class="dropdown-item" href="my_sold_notes.php?<?php echo'user_id='.$user_id; ?>">My Sold Notes</a>
+                                        <a class="dropdown-item"  href="my_rejected_notes.php?<?php echo'user_id='.$user_id; ?>">My Rejected Notes</a>
+                                        <a class="dropdown-item" href="change_password.php?<?php echo'user_id='.$user_id; ?>">Change Password</a>
+                                        <a class="dropdown-item" href="logout.php">Log out</a>
                                     </div>
                                 </div>
                                 <a href="#" class="navbar-brand">
@@ -223,11 +222,31 @@ include"includes/database.php";
             <div class="container note_container">
                
                 <?php
+                
+                       if(isset($_GET['page'])){
+                    $page = $_GET['page'];
+                    $page =mysqli_real_escape_string($connection,$page);
+                    $page = htmlentities($page);
+                    }
+                    else{
+                        $page = 1;
+                    }    
+                    $num_per_page = 5;
+                    $start_from = ($page-1) * $num_per_page;
+                
+                
                     $query = "SELECT * FROM sellernotes";
                     $all_notes = mysqli_query($connection,$query);
                     if(!$all_notes){
                         die("FAILED TO LOAD NOIES".mysqli_error($connection));
                     }
+                
+                     $total_records = mysqli_num_rows($all_notes); 
+                         $total_pages = ceil($total_records / $num_per_page);
+                        $i=1;
+                        $k=  $num_per_page + $start_from;
+                        $srno = 1;
+                
                    $count = mysqli_num_rows($all_notes);
                     echo"<h3>Total $count  notes</h3>";
                     while($row = mysqli_fetch_assoc($all_notes)){
@@ -247,6 +266,7 @@ include"includes/database.php";
                          $note_price = $row['SellingPrice'];
                          $note_preview = $row['NotesPreview'];
                          $note_date = $row['CreatedDate'];
+                        if($start_from<$i){
                         
                     ?>
                 <a href="<?php if(isset($user_id)){ echo 'note_details.php?note_id='.$note_id.'&user_id='.$user_id;}else {echo 'note_details.php?note_id='.$note_id;}?>">
@@ -307,6 +327,11 @@ include"includes/database.php";
 
                 <?php         
                     }
+                                $i++;
+                                if($i>$k){
+                                    break;
+                                }
+                    }
                 
                 ?>
 
@@ -323,35 +348,114 @@ include"includes/database.php";
         }
     </style>
     <center>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&#60;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="user_profile.html">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&#62;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <nav aria-label="Page navigation example" id="pagination">
+                    <ul class="pagination d-flex justify-content-center">
+                        <li class="page-item  <?php if($page == 1){ echo 'disabled'; }?>">
+                            <a class="page-link" href="search_notes.php?page=<?php echo $page-1; ?>" aria-label="Previous">
+                                <span aria-hidden="true">&#60;</span>
+                            </a>
+                        </li>
+                        <?php 
+                            for($i=1;$i<=$total_pages;$i++){
+                        ?>
+                        <li class="page-item">
+                            <a class="page-link <?php if($page == $i) { echo 'active'; }?>" href="search_notes.php?page=<?php echo $i ; ?>"><?php echo $i ;?></a>
+                        </li>
+                        <?php 
+                            }
+                        ?>
+
+
+
+
+                        <li class="page-item <?php if($page == $total_pages){ echo 'disabled'; }?>">
+                            <a class="page-link" href="search_notes.php?page=<?php echo $page-1; ?>" aria-label="Next">
+                                <span aria-hidden="true">&#62;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
     </center>
-    <footer class="footer1">
+   <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <p>Copyright &copy; Tatvasoft All Rights reserved<span><a href=""><i class="fa fa-facebook"> </i></a><a href=""><i class="fa fa-twitter"> </i></a><a href=""><i class="fa fa-instagram"></i></a></span></p>
+                <!-- Copyright -->
+                <div class="col-md-6 col-sm-8 foot-text text-left">
+                    <p>Copyright &copy; TatvaSoft All Rights Reserved.</p>
+                </div>
+                <!-- Social Icon -->
+                <div class="col-md-6 col-sm-4 foot-icon col-sm-4 text-right">
+                    <ul class="social-list">
+                        <li>
+                            <a href="#">
+                                <img src="img/images/facebook.png" alt="facebook-image">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/images/twitter.png" alt="twitter-image">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/images/linkedin.png" alt="linkedin-image">
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </footer>
+    <style>
+        hr {
+            margin: 0;
+            margin-top: 60px;
+        }
+
+        .foot-text p {
+            margin: 40px 0;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+            color: #333333;
+        }
+
+        .social-list {
+            margin: 30px 0;
+        }
+
+        ul.social-list {
+            padding: 0;
+        }
+
+        ul.social-list li {
+            display: inline-block;
+            padding: 0;
+        }
+
+        ul.social-list li a {
+            text-align: center;
+            background-color: #6255a5;
+            border: 1px solid #6255a5;
+            width: 36px;
+            height: 36px;
+            display: inline-block;
+            line-height: 30px;
+            color: white;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            transition: all 400ms linear;
+            -webkit-transition: all 400ms linear;
+            -moz-transition: all 400ms linear;
+            -ms-transition: all 400ms linear;
+            -o-transition: all 400ms linear;
+        }
+
+    </style>
     <!-- JQUERY JS-->
    <script src="js/jquery-3.5.1.js"></script>
     <!--Bootstrap js-->
