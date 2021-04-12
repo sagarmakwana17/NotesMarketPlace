@@ -1,0 +1,171 @@
+.content-box-lg {
+    padding: 60px 0;
+}
+
+#user-section {
+    background: url(../img/User-Profile/banner-with-overlay.jpg);
+    height: 250px;
+    margin-top: 80px;
+}
+
+#user-section h4 {
+    font-family: "Open Sans";
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 52px;
+}
+
+
+a {
+    color: #333333;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #6255a5;
+    border-color: #6255a5;
+    width: 89px;
+
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    line-height: 22px;
+}
+
+
+#display-picture {
+    height: 100px;
+
+    background: url("../img/User-Profile/upload.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 20px;
+}
+
+#update-notes {
+    height: 100px;
+
+    background: url("../img/images/ss-upload.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 20px;
+}
+
+#note-preview {
+    height: 100px;
+
+    background: url("../img/images/upload-file.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 20px;
+}
+
+#full-name,
+#email,
+subject {
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #6255a5;
+
+    padding-bottom: 20px;
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+}
+
+h4 {
+    color: #6255a5;
+
+    margin-top: 50px;
+
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+}
+
+/*FAQ section*/
+#q1 {
+    border: 1px solid #d1d1d1;
+    padding: 10px;
+    height: 120px;
+}
+
+#q1 h5 {
+    color: #333333;
+
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+#q1 p {
+    color: #333333;
+
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.q2 {
+    height: 60px;
+    background-color: #f3f3f3;
+    margin-top: 15px 0;
+}
+
+.q2 p {
+    color: #333333;
+    padding: 15px 10px;
+    ;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.q2 {
+    margin-top: 15px;
+}
+
+.q2 img {
+
+    float: right;
+    margin-top: 18px;
+    margin-right: 20px;
+
+}
+
+
+footer {
+    padding: 40px 0;
+}
+
+footer p span {
+    float: right;
+}
+
+footer p span .fa {
+    border-radius: 15px;
+    border-color: #6255a5;
+    color: #fff;
+    border: 1px solid #6255a5;
+    background-color: #6255a5;
+    height: 18px;
+}
+
+footer p span i {
+    padding: 0 10px 0 10px;
+    margin-left: 10px;
+}

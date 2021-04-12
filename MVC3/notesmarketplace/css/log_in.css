@@ -1,0 +1,100 @@
+body {
+    background-image: url("../img/banner-with-overlay.jpg");
+    
+
+}
+
+
+
+
+/* login page*/
+
+
+
+
+
+
+
+#login_wrapper{
+   /*margin-top: 10%;*/
+   
+   
+}
+.col-lg-5{
+ margin-top: 8%;
+}
+
+img{
+   
+       
+}
+
+.btn-primary {
+   
+    width: 480px;
+    background-color: #6255a5;
+   margin-bottom: 20px;
+   
+    height: 40px !important;
+    margin-top: 20px;
+    
+    
+    
+    
+}
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+}
+
+.col-lg-5{
+    
+}
+#login-form{
+       margin-top: 11px;
+     background-color: #fff;
+    padding: 30px 30px 10px 50px;
+    margin-bottom: 10px;
+    
+    }
+h4,p{
+    text-align: center;
+}
+h4{
+    font-family: "Open Sans",sans-serif;
+    font-size: 34px;
+    font-weight:600;
+    line-height: 38px;
+    color: #6255a5;
+}
+p {
+    
+    font-family: "Open Sans",sans-serif;
+    font-size: 15px;
+    font-weight:400;
+    line-height: 19px;
+    color: #333333;
+    margin-bottom: 45px
+}
+
+
+h6{
+    float:right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

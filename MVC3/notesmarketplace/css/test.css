@@ -1,0 +1,86 @@
+#content {
+    margin-top: 150px;
+    margin-bottom: 60px;
+}
+
+.heading {
+    margin: 10px 0;
+}
+
+.heading-1 {
+    color: #6255a5;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+}
+
+.heading-2 {
+    color: #6255a5;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+}
+
+.input-search {
+    height: 35px;
+    border-radius: 3px;
+    margin-right: 10px;
+    border: 1px solid #d1d1d1;
+}
+
+.search-1 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.inner-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+[type="search"]::placeholder {
+    padding-left: 40px;
+}
+
+.form-control-feedback {
+    position: relative;
+    left: 30px;
+}
+
+/* =======================================================================
+                           Button
+======================================================================= */
+.btn-general {
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    background-color: #6255a5;
+    color: #ffffff;
+    border-radius: 3px;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.btn-contactus-submit{
+    margin-left: 15px;
+}
+
+#btn-Submit,
+#btn-Publish {
+    padding: 13px 10px;
+    margin-bottom: 14px;
+    background-color: #6255a5;
+    width: 150px;
+    height: 50px;
+    border-radius: 3px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+}

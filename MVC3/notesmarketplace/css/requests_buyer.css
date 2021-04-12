@@ -1,0 +1,261 @@
+
+
+
+
+
+
+
+
+
+
+
+.form-inline{
+    float: right;
+}
+.form-control{
+    border: 1px solid #d1d1d1;
+}
+.profile{
+    padding: 0px 10px;
+}
+
+
+.content-box-lg {
+    padding: 50px 0;
+}
+
+#stats{
+    margin-top: 20px;
+}
+.dropdown-menu{
+     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    border: none;
+    width: 200px;
+}
+.show .dropdown-item{
+      color: #333333;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    
+    padding: 5px 20px;
+    height: 30px;
+}
+
+
+.collapse{
+    padding: 10px 0;
+}
+.nav-item{
+    padding-top: 13px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+     color: #333333;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+
+.nav-item:hover{
+      color: #6255a5 ;
+    background: none;
+    border-bottom: 2px solid #6255a5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#user-section h4 {
+    font-family: "Open Sans";
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 52px;
+}
+
+.navbar {
+    padding: 10px 0 10px 0;
+    background-color: white;
+    padding-left: 90px;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.08);
+}
+
+a {
+    color: #333333;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.nav > li > a:hover {
+    color: #6255a5;
+    background: none;
+    border-bottom: 2px solid #6255a5;
+}
+
+/* dropdown css*/
+
+.dropdown-item:hover {
+    background-color: #6255a5;
+    color: white;
+    
+}
+.dropdown-item{
+     
+    
+    font-family: "Open Sans";
+   
+    font-size: 16px;
+
+    color: #8a8a8a;
+
+}
+.dots img{
+    padding:0 20px;
+}
+
+.dropdown-menu a{
+    padding: 5px;
+}
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #6255a5;
+    border-color: #6255a5;
+    width: 89px;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    line-height: 22px;
+}
+
+/* dashboards*/
+#dashboard {
+    margin-top: 150px;
+}
+
+#heading {
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-size: 33px;
+    color: #6255a5;
+    line-height: 25px;
+    position: absolute;
+
+}
+
+#addnote {
+    float: right;
+    width: 150px;
+}
+
+#t1 {
+    margin-top: 100px;
+
+
+}
+
+
+
+#buyer-requests{
+    margin-top: 100px;
+}
+.progres {
+   
+    margin-top: 40px;
+    border: 1px solid #d1d1d1;
+    width: 1100px;
+}
+
+.progres tr {
+    border: 1px solid #d1d1d1;
+    height: 75px;
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-size: 16px;
+
+    color: #8a8a8a;
+
+}
+
+.progres tr:hover {
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.progres th,
+td {
+    padding: 5px 10px;
+}
+
+.table-title p {
+    position: absolute;
+   
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-size: 24px;
+    color: #6255a5;
+    line-height: 20px;
+}
+
+.table-title #search {
+    float: right;
+   
+    margin-bottom: 10px;
+}
+
+.search-input {
+    width: 322px;
+    height: 35px;
+    font-family: "Open Sans";
+    font-weight: 400;
+    font-size: 20px;
+    color: #8a8a8a;
+    padding: 5px 10px;
+
+}
+
+.search-btn {
+    margin-bottom: 7px;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    border: 1px solid white;
+    color: #6255a5;
+}
+
+.pagination > li > a:hover {
+    background: #6255a5;
+    color: #fff;
+    border-radius: 50%;
+}
+
+
+
+
+
+

@@ -1,0 +1,254 @@
+
+
+.content-box-lg {
+    padding: 60px 0;
+}
+
+#user-section {
+    background: url(../img/User-Profile/banner-with-overlay.jpg);
+    height: 250px;
+
+}
+
+#user-section h4 {
+    font-family: "Open Sans";
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 52px;
+}
+.form-inline{
+    float: right;
+}
+.form-control{
+    border: 1px solid #d1d1d1;
+}
+.profile{
+    padding: 0px 10px;
+}
+
+
+.content-box-lg {
+    padding: 50px 0;
+}
+
+#stats{
+    margin-top: 20px;
+}
+.dropdown-menu{
+     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    border: none;
+    width: 200px;
+}
+.show .dropdown-item{
+      color: #333333;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    
+    padding: 5px 20px;
+    height: 30px;
+}
+
+
+.collapse{
+    padding: 10px 0;
+}
+.nav-item{
+    padding-top: 13px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+     color: #333333;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+
+.nav-item:hover{
+      color: #6255a5 ;
+    background: none;
+    border-bottom: 2px solid #6255a5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#user-section h4 {
+    font-family: "Open Sans";
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 52px;
+}
+
+.navbar {
+    padding: 10px 0 10px 0;
+    background-color: white;
+    padding-left: 90px;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.08);
+}
+
+a {
+    color: #333333;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.nav > li > a:hover {
+    color: #6255a5;
+    background: none;
+    border-bottom: 2px solid #6255a5;
+}
+
+/* dropdown css*/
+
+.dropdown-item:hover {
+    background-color: #6255a5;
+    color: white;
+    
+}
+.dropdown-item{
+     
+    
+    font-family: "Open Sans";
+   
+    font-size: 16px;
+
+    color: #8a8a8a;
+
+}
+.dots img{
+    padding:0 20px;
+}
+
+.dropdown-menu a{
+    padding: 5px;
+}
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #6255a5;
+    border-color: #6255a5;
+    width: 89px;
+    
+    border-radius: 3px;
+     font-family: "Open Sans";
+    font-size: 16px;
+   line-height: 22px;
+}
+
+#profile{
+    height: 100px;
+    width: 49%;
+    background: url("../img/User-Profile/upload.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 20px;
+}
+#profile placeholder {
+    font-size: 50px;
+}
+#phone-no{
+    margin-top: 15px;
+}
+h3{
+    color: #6255a5;
+    
+    padding-bottom: 20px;
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+        
+}
+h4{
+    color: #6255a5;
+    
+    padding-bottom: 20px;
+    padding-top: 50px;
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+        
+}
+h5{
+    color: #6255a5;
+    
+    padding-bottom: 20px;
+   
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+        
+}
+label{
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #333333;
+}
+#zipcode{
+    margin-bottom: 30px;
+}
+#country{
+    margin-bottom: 30px;
+}
+
+footer p span{
+    float: right;
+    
+}
+footer p span .fa{
+      border-radius: 15px;
+    border-color: #6255a5;
+    color: #fff;
+   
+    border: 1px solid #6255a5;
+    background-color: #6255a5;
+    height: 18px;
+}
+footer p span i{
+    padding: 0 10px 0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+/*preloader css*/
+
+#preloader{
+    background-color: white;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+}
+#status{
+    background-image: url("../../img/preloader/pre.gif");
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 220px;
+   
+    margin-top: 300px;
+    
+    
+    
+}

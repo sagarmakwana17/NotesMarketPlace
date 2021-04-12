@@ -1,0 +1,276 @@
+.note-title p{
+    margin: 15px;
+}
+.note-wrapper img{
+   
+}
+
+.content-box-lg {
+    padding: 60px 0;
+}
+.fa-search{
+    
+      
+    font-size: 16px;
+   
+    color: #8a8a8a;
+    
+}
+#user-section {
+    background: url(../img/User-Profile/banner-with-overlay.jpg);
+    height: 250px;
+margin-top: 80px;
+}
+
+#user-section h4 {
+    font-family: "Open Sans";
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 52px;
+}
+.navbar {
+    padding: 10px 0 10px 0;
+    background-color: white;
+    padding-left:  90px;
+   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.08);
+}
+
+a {
+    color: #333333;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.nav > li > a:hover{
+    color: #6255a5;
+    background: none;
+    border-bottom: 2px solid #6255a5;
+}
+/* dropdown css*/
+.dropdown{
+     position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+.dropdown-menu a {
+  padding: 0px 5px;
+   margin: 20px 0;
+}
+.dropdown-menu a:hover{
+    background-color: #6255a5;
+    color: white;
+}
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #6255a5;
+    border-color: #6255a5;
+    width: 89px;
+
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    line-height: 22px;
+}
+
+
+
+
+h3 {
+    color: #6255a5;
+    padding-left: 12px;
+    padding-bottom: 20px;
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+}
+
+h4 {
+    color: #6255a5;
+    padding-left: 12px;
+    margin-top: 50px;
+   
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+}
+h5 {
+    color: #6255a5;
+    padding-left: 12px;
+    padding-bottom: 20px;
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+}
+label {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #333333;
+}
+
+
+/*search notes css*/
+
+#search-notes i {
+    position: absolute;
+    margin-top: 17px;
+    margin-left: 10px;
+}
+
+.note-wrapper{
+    /*padding: 5px;*/
+     border: 1px solid #d1d1d1;
+    height: 480;
+}
+#form_wrapper{
+    background-color: #f9f9f9;
+    height: 181px;
+}
+#form_wrapper form{
+    padding: 30px;
+}
+
+.form-control{
+    border: 1px solid #d1d1d1;
+    height: 50px;
+    border-radius: 3px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #8a8a8a;
+    
+}
+
+.note-title{
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    color: #6255a5;
+}
+.details{
+    
+}
+.col-md-4{
+   margin-bottom: 50px;
+}
+.table-borderless td{
+    padding: 5px 10px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    margin-left: 20px;
+}
+
+
+.reviews p{
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    position: absolute;
+    right: 100px;
+    margin-top: 7px;
+}
+.pagination > li > a,
+.pagination > li > span {
+    border: 1px solid white;
+    color: #6255a5;
+}
+
+.pagination > li > a:hover {
+    background: #6255a5;
+    color: #fff;
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+/*css for ratings*/
+*{
+    margin: 0;
+    padding: 0;
+}
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+/*pagination css*/
+
+
+
+
+/*footer css*/
+
+
+footer{
+    padding: 40px 0;
+}
+footer p span {
+    float: right;
+}
+footer p span .fa {
+    border-radius: 15px;
+    border-color: #6255a5;
+    color: #fff;
+    border: 1px solid #6255a5;
+    background-color: #6255a5;
+    height: 18px;
+}
+footer p span i {
+    padding: 0 10px 0 10px;
+    margin-left: 10px;
+}
