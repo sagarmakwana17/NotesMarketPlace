@@ -378,7 +378,7 @@ if(mysqli_num_rows($admin_info) != 0){
                                     </a>
                                     <div class="dropdown-menu">
                                         
-                                        <a class="dropdown-item text-center" href="">View More Details</a>
+                                        <a class="dropdown-item text-center" href="member_details.php?member=<?php echo $id; ?>">View More Details</a>
                                         <a class="dropdown-item text-center" data-toggle="modal" data-target="#p<?php echo $srno; ?>">Deactivate</a>
                                     </div>
                                 </div>

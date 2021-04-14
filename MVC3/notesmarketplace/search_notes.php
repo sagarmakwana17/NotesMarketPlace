@@ -395,6 +395,11 @@ if(mysqli_num_rows($admin_info) != 0){
                     </ul>
                 </nav>
     </center>
+     <?php
+                if($total_records==0){
+                    echo" <p class='text-center' style= 'font-size:26px; margin-top : 20px; color:#6255a5; font-weight:600'>No Records Found !</p>";
+                }
+                ?>
    <footer>
         <div class="container">
             <div class="row">

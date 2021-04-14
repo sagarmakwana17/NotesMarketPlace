@@ -65,7 +65,7 @@ if(mysqli_num_rows($admin_info) != 0){
 
 
 
-    <title>Dashboard</title>
+    <title>Member Details</title>
 </head>
 
 <body>
@@ -84,9 +84,9 @@ if(mysqli_num_rows($admin_info) != 0){
 
                             <li class="nav-item"><a class="nav-link" href="<?php if(isset($user_id)){ echo 'dashboard.php?user_id='.$user_id;}else {echo 'dashboard.php';}?>">Dashboard</a></li>
                             <li class="nav-item note-dropdown">
-                             <div class="dropdown show">
-                                    <a class="note-dropdown" href="#" role="" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                       Notes
+                                <div class="dropdown show">
+                                    <a class="note-dropdown" href="#" role="" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Notes
                                     </a>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -100,10 +100,10 @@ if(mysqli_num_rows($admin_info) != 0){
                             </li>
                             <li class="nav-item"><a class="nav-link" href="members.php">Members</a> </li>
                             <li class="nav-item"><a class="nav-link" href="spam_reports.php">Reports</a></li>
-                           <li class="nav-item note-dropdown">
-                             <div class="dropdown show">
-                                    <a class="note-dropdown" href="#" role="" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                      Settings
+                            <li class="nav-item note-dropdown">
+                                <div class="dropdown show">
+                                    <a class="note-dropdown" href="#" role="" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Settings
                                     </a>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -119,15 +119,15 @@ if(mysqli_num_rows($admin_info) != 0){
                             <li class="nav-item ">
                                 <div class="dropdown show">
                                     <a class="" href="#" role="" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                       <?php
+                                        <?php
                                        if(isset($profile)){
                                            
                                            ?>
-                                           <img class="profile" src="<?php if(isset($profile)){ echo $profile; }?>" alt="">
-                                           <?php
+                                        <img class="profile" src="<?php if(isset($profile)){ echo $profile; }?>" alt="">
+                                        <?php
                                        }else{
-                                          ?> 
-                                       
+                                          ?>
+
                                         <img class="profile" src="../img/images/user-l.jpg" alt="">
                                         <?php } ?>
                                     </a>
@@ -161,62 +161,173 @@ if(mysqli_num_rows($admin_info) != 0){
 
 
 
-    <!--php code to get statistics-->
-    <?php
-
-    $r_query = "SELECT * FROM sellernotes WHERE Status = 'submitted' ";
-                            
-                        
-    $inreview_notes = mysqli_query($connection,$r_query);
-
-    if(!$inreview_notes){
-            die(mysqli_error($connection));
-    }
-    $notes_in_review = mysqli_num_rows($inreview_notes);
     
-    /*to get the number of downloaded notes*/
-    
-     $d_query = "SELECT * FROM downloads";
-                            
-                        
-    $downloaded_notes = mysqli_query($connection,$d_query);
-
-    if(!$downloaded_notes){
-            die(mysqli_error($connection));
-    }
-    $notes_downloaded = mysqli_num_rows($downloaded_notes);
-    
-?>
 
 
     <section id="dashboard">
-        <p id="heading"></p>
-        <div class="container">
 
-            <div class="row">
-                <div class="col-md-4">
-                   <a href="notes_under_review.php">
-                    <div class="dash">
-                        <h5><?php echo $notes_in_review ?></h5>
-                        <p>Number of notes in review for publish</p>
+        <div class="container">
+            <p id="det" style="">Member Details</p>
+            <div class="row member">
+
+                <div class="col-md-6">
+                   <div class="l">
+                    <?php
+                                       if(!empty($p)){
+                                           
+                                           ?>
+                                        <img class="" src="../<?php if(!empty($p)){ echo $p; }?>" alt="">
+                                        <?php
+                                       }else{
+                                          ?>
+
+                                        <img class="" src="../img/images/user-l.jpg" alt="">
+                                        <?php } ?>
+                    
                     </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                   <a href="download_notes.php">
-                    <div class="dash">
-                        <h5><?php echo $notes_downloaded ?></h5>
-                        <p>Number of new notes downloaded<br>(last 7 days)</p>
+                    <div class="l">
+                        <table>
+                           <!--php code to get member details-->
+    <?php
+if(isset($_GET['member'])){
+    
+    $m_id = $_GET['member'];
+   
+    $m = "SELECT * FROM userprofile AS u JOIN users AS a ON u.UserID = a.ID WHERE a.ID = $m_id";
+    $m_query = mysqli_query($connection,$m);
+    if(!$m_query){
+        die(mysqli_error($connection));
+    }else{
+        
+        $member = mysqli_fetch_assoc($m_query);
+        $fname = $member['FirstName'];
+        $lname = $member['LastName'];
+        $email = $member['EmailID'];
+        $dob = $member['DOB'];
+        $phonenumber = $member['PhoneNumber'];
+        $uni = $member['University'];
+        $a1 = $member['AddressLine1'];
+        $a2 = $member['AddressLine2'];
+        $city = $member['City'];
+        $state = $member['State'];
+        $zip = $member['ZipCode'];
+        $country = $member['Country'];
+        $p = $member['ProfilePicture'];
+    }
+}
+    
+//}
+  
+    
+?>
+                            <tr>
+                                <td class="t">
+                                    First Name :
+                                </td>
+                                <td class="r">
+                                    <?php echo $fname ?>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="t">
+                                    Last Name :
+                                </td>
+                                <td class="r">
+                                   <?php echo $lname ?>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="t">
+                                    Email :
+                                </td>
+                                <td class="r">
+                                   <?php echo $email ?>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="t">
+                                   DOB :
+                                </td>
+                                <td class="r">
+                                   <?php echo $dob ?>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="t">
+                                    Phone No :
+                                </td>
+                                <td class="r">
+                                    <?php echo $phonenumber ?>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="t">
+                                    College/University :
+                                </td>
+                                <td class="r">
+                                   <?php echo $uni ?>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
-                    </a>
+
                 </div>
-                <div class="col-md-4">
-                   
-                    <div class="dash">
-                        <h5>0</h5>
-                        <p>Number of new registrations</p>
+                <div class="col-md-6">
+
+ <div class="l">
+                        <table>
+                            <tr>
+                                <td class="t">
+                                    Address 1 :
+                                </td>
+                                <td class="r">
+                                     <?php echo $a1 ?>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="t">
+                                    Address 2 :
+                                </td>
+                                <td class="r">
+                                    <?php echo $a2 ?>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="t">
+                                    City :
+                                </td>
+                                <td class="r">
+                                    <?php echo $city ?>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="t">
+                                   State :
+                                </td>
+                                <td class="r">
+                                    <?php echo $state ?>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="t">
+                                   Country :
+                                </td>
+                                <td class="r">
+                                     <?php echo $country ?>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="t">
+                                    Zipcode :
+                                </td>
+                                <td class="r">
+                                   <?php echo $zip ?>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
+
             </div>
 
 
@@ -225,6 +336,38 @@ if(mysqli_num_rows($admin_info) != 0){
     </section>
 
     <style>
+        .t{
+            color: #333333;
+            font-family: "Open Sans";
+            
+        }
+        .r{
+            color: #6255a5;
+            font-family: "Open Sans";
+            margin-left: 20px;
+            font-weight: 600;
+        }
+        .l table{
+            margin-left: 120px;
+            
+        }
+        .l table td,tr{
+            padding-left: 40px;
+        } 
+        .member img{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            
+        }
+        #det {
+            font-family: "Open Sans";
+            font-weight: 600;
+            font-size: 24px;
+            color: #6255a5;
+            line-height: 20px;
+        }
+
         #month {
             margin-bottom: 9px;
         }
@@ -240,27 +383,29 @@ if(mysqli_num_rows($admin_info) != 0){
             border: none;
             width: 250px;
         }
-        
-        
+
+
         /*modal*/
         .title h4 {
             font-weight: 600;
-           margin-left: 50px;
+            margin-left: 50px;
             margin-top: 20px;
         }
-        .close{
+
+        .close {
             margin-top: 10px;
             margin-right: 10px;
         }
-        .form-row{
+
+        .form-row {
             margin-left: 50px;
         }
-        .modal .btn{
+
+        .modal .btn {
             margin-left: 50px;
             margin-bottom: 35px;
             width: 120px;
         }
-        
 
     </style>
     <section id="progress-notes">
@@ -268,25 +413,14 @@ if(mysqli_num_rows($admin_info) != 0){
             <div class="container">
                 <div class="table-title row">
                     <div class="col-6">
-                        <p>Published Notes</p>
+                        <p> Notes</p>
                     </div>
                     <div class="col-6">
 
-                        <form class="form-inline" method="post">
-
-                            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search" name="search">
-
-                            <button type="submit" class="btn btn-primary mb-2" name="submit">Submit</button>
-                            <select id="month" class="form-control" name="month">
-                                <option selected>Month</option>
-                                <option>january</option>
-                                <option>february</option>
-                            </select>
-                        </form>
 
                     </div>
                 </div>
-              
+
                 <div class="table-responsive">
                     <table class="progres">
 
@@ -299,7 +433,7 @@ if(mysqli_num_rows($admin_info) != 0){
 
                             <th>SELL TYPE</th>
                             <th>PRICE</th>
-                            <th>PUBLISHER</th>
+                            
                             <th>PUBLISHED DATE/TIME</th>
                             <th> NUMBER OF DOWNLOADS</th>
                             <th></th>
@@ -321,7 +455,7 @@ if(mysqli_num_rows($admin_info) != 0){
                                  $query = "SELECT * FROM sellernotes WHERE Status = 'published' AND Title LIKE '{$search}%'  ";
                              }
                             else{
-                            $query = "SELECT * FROM sellernotes WHERE Status = 'published' ";
+                            $query = "SELECT * FROM sellernotes WHERE SellerID = $m_id ";
                             }
                         
                     $published_notes = mysqli_query($connection,$query);
@@ -382,7 +516,7 @@ if(mysqli_num_rows($admin_info) != 0){
                             <td><?php echo $selltype; ?></td>
                             <td><?php echo $price; ?></td>
 
-                            <td><?php echo  $publisher; ?></td>
+                           
 
                             <td><?php echo $publish_date; ?></td>
                             <td><?php echo $download_num; ?></td>
@@ -416,7 +550,7 @@ if(mysqli_num_rows($admin_info) != 0){
                                         <div class="title">
                                             <h4><?php echo $title;?></h4>
                                         </div>
-                                       
+
                                         <?php
                                             if(isset($_POST['unpublish'])){
                                                 $remark = $_POST['remark'];
@@ -458,7 +592,8 @@ if(mysqli_num_rows($admin_info) != 0){
                         }
                     ?>
 
-                      
+                       
+
                     </table>
                 </div>
                  <?php
