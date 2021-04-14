@@ -41,11 +41,11 @@ ob_start();
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-auto">
 
 
-                            <li class="nav-item"><a class="nav-link" href="search_notes.html">Search Notes</a></li>
-                            <li class="nav-item"><a class="nav-link" href="">Sell Your Notes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="search_notes.php">Search Notes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="login.php">Sell Your Notes</a></li>
 
-                            <li class="nav-item"><a class="nav-link" href="FAQ.html">FAQ</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact_us.html">Contact Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="FAQ.php">FAQ</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact_us.php">Contact Us</a></li>
 
                             <li class="nav-item"><a class="btn btn-primary" href="login.php" role="button">Log In</a></li>
 
@@ -106,7 +106,7 @@ ob_start();
                         </center>
                         <p>Download Free/Paid Notes</p>
                         <h6>get material for your<br>cource etc.</h6>
-                        <a class="btn btn-primary work_btn" href="" role="button" id="download">DOWNLOAD</a>
+                        <a class="btn btn-primary work_btn" href="search_notes.php" role="button" id="download">DOWNLOAD</a>
                     </div>
 
                     <div class="col-md-6 text-center">
@@ -117,7 +117,7 @@ ob_start();
                             <center>
                                 <p>Seller</p>
                                 <h6>Upload and Download<br>Cource and materials etc.</h6>
-                                <a class="btn btn-primary work_btn" href="" role="button" id="sellnow">SELL NOW</a>
+                                <a class="btn btn-primary work_btn" href="login.php" role="button" id="sellnow">SELL NOW</a>
 
                     </div>
 

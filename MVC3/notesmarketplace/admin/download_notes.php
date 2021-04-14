@@ -247,7 +247,7 @@ if(mysqli_num_rows($admin_info) != 0){
                         <form class="form-inline" method="post" id="filters">
 
 
-                            <select id="note" class="form-control" name="university">
+                            <select id="note" class="form-control" name="">
                                 <option value="" disabled selected>Select Note</option>
                                 <?php
                                         $query = "SELECT DISTINCT Title FROM sellernotes";
@@ -263,7 +263,7 @@ if(mysqli_num_rows($admin_info) != 0){
 
 
                             </select>
-                            <select id="seller" class="form-control" name="university">
+                            <select id="seller" class="form-control" name="">
                                 <option value="" disabled selected>Select Seller</option>
                                 <?php
                                         $query = "SELECT DISTINCT FirstName FROM users";
@@ -279,7 +279,7 @@ if(mysqli_num_rows($admin_info) != 0){
 
 
                             </select>
-                            <select id="buyer" class="form-control" name="university">
+                            <select id="buyer" class="form-control" name="">
                                 <option value="" disabled selected>Select Buyer</option>
                                 <?php
                                         $query = "SELECT DISTINCT FirstName FROM users";
@@ -343,7 +343,7 @@ if(mysqli_num_rows($admin_info) != 0){
                             
                              if(isset($_POST['submit'])){
                                 $search = $_POST['search'];
-                                 $query = "SELECT * FROM sellernotes WHERE Status = 'published' AND Title LIKE '{$search}%' OR Category LIKE '{$search}%' ";
+                                 $query = "SELECT * FROM downloads AS d JOIN sellernotes AS s ON s.ID = d.NoteID WHERE Title LIKE '{$search}%' OR Category LIKE '{$search}%' ";
                              }
                             else{
                             $query = "SELECT * FROM downloads AS d JOIN sellernotes AS s ON s.ID = d.NoteID";

@@ -279,8 +279,12 @@ if(mysqli_num_rows($admin_info) != 0){
                             <button type="submit" class="btn btn-primary mb-2" name="submit">Submit</button>
                             <select id="month" class="form-control" name="month">
                                 <option selected>Month</option>
-                                <option>january</option>
-                                <option>february</option>
+                                <option><?php echo date('M', strtotime('-1 month'));?></option>
+                                  <option><?php echo date('M', strtotime('-2 month'));?></option>
+                                  <option><?php echo date('M', strtotime('-3 month'));?></option>
+                                <option><?php echo date('M', strtotime('-4 month'));?></option>
+                                 <option><?php echo date('M', strtotime('-5 month'));?></option>
+                                 <option><?php echo date('M', strtotime('-6 month'));?></option>
                             </select>
                         </form>
 
