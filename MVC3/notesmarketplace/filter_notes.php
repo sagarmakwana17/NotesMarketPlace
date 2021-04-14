@@ -45,7 +45,7 @@ include"includes/database.php";
                             <a href="<?php echo 'note_details.php?note_id='.$note_id.'&user_id='.$user_id;?>">
                                 <div class="col-md-4">
                                     <div class="note-wrapper">
-                                        <img src="img/Search/1.jpg" class="img-responsive">
+                                        <img src="<?php if(!empty($note_pic)){echo $note_pic ;}else {echo 'img/Search/1.jpg'; }?>" class="img-responsive">
                                         <div class="details">
 
                                             <div class="note-title">

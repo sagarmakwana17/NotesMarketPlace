@@ -60,7 +60,7 @@ if(mysqli_num_rows($admin_info) != 0){
                                         <span id="mobile-nav-open-btn">&#9776;</span>
                                     </a>
                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="#">My Profile</a>
+                                        <a class="dropdown-item" href="<?php if(isset($user_id)){ echo 'user_profile.php?user_id='.$user_id;}else {echo 'login.php';}?>">My Profile</a>
                                         <a class="dropdown-item" href="my_downloads.php?<?php echo'user_id='.$user_id; ?>">My Downloads</a>
                                         <a class="dropdown-item" href="my_sold_notes.php?<?php echo'user_id='.$user_id; ?>">My Sold Notes</a>
                                         <a class="dropdown-item"  href="my_rejected_notes.php?<?php echo'user_id='.$user_id; ?>">My Rejected Notes</a>
@@ -85,16 +85,16 @@ if(mysqli_num_rows($admin_info) != 0){
                                                     <img src="img/images/user-img.png" alt="">
                                                 </a>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <a class="dropdown-item" href="#">My Profile</a><br>
-                                                    <a class="dropdown-item" href="#">My Downloads</a><br>
-                                                    <a class="dropdown-item" href="#">My Sold Notes</a><br>
-                                                    <a class="dropdown-item" href="#">My Rejected Notes</a><br>
-                                                    <a class="dropdown-item" href="#">Change Password</a><br>
-                                                    <a class="dropdown-item" href="#">Log Out</a>
+                                                    <a class="dropdown-item" href="<?php if(isset($user_id)){ echo 'user_profile.php?user_id='.$user_id;}else {echo 'login.php';}?>">My Profile</a><br>
+                                                    <a class="dropdown-item" href="<?php if(isset($user_id)){ echo 'my_downloads.php?user_id='.$user_id;}else {echo 'login.php';}?>">My Downloads</a><br>
+                                                    <a class="dropdown-item" href="<?php if(isset($user_id)){ echo 'my_sold_notes.php?user_id='.$user_id;}else {echo 'login.php';}?>">My Sold Notes</a><br>
+                                                    <a class="dropdown-item" href="<?php if(isset($user_id)){ echo 'my_rejected_notes.php?user_id='.$user_id;}else {echo 'login.php';}?>">My Rejected Notes</a><br>
+                                                    <a class="dropdown-item" href="<?php if(isset($user_id)){ echo 'change_password.php?user_id='.$user_id;}else {echo 'login.php';}?>">Change Password</a><br>
+                                                    <a class="dropdown-item" href="logout.php">Log Out</a>
                                                 </div>
                                             </div>
                                         </li>
-                                        <li><a class="btn btn-primary" href="" role="button">Log Out</a></li>
+                                        <li><a class="btn btn-primary" href="logout.php" role="button">Log Out</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -291,7 +291,7 @@ if(mysqli_num_rows($admin_info) != 0){
                 <a href="<?php if(isset($user_id)){ echo 'note_details.php?note_id='.$note_id.'&user_id='.$user_id;}else {echo 'note_details.php?note_id='.$note_id;}?>">
                     <div class="col-md-4">
                         <div class="note-wrapper">
-                            <img src="img/Search/1.jpg" class="img-responsive">
+                            <img src="<?php if(!empty($note_pic)){echo $note_pic ;}else {echo 'img/Search/1.jpg'; }?>" class="img-responsive">
                             <div class="details">
 
                                 <div class="note-title">

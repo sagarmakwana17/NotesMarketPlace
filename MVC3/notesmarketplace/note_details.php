@@ -56,6 +56,12 @@ if(mysqli_num_rows($admin_info) != 0){
 </head>
 
 <body>
+   <style>
+       #left-side img{
+           width: 300px;
+           height: 300px;
+       }
+    </style>
     <header>
         <div class="container">
 
@@ -155,7 +161,7 @@ if(mysqli_num_rows($admin_info) != 0){
             <div class="row">
                 <div class="col-md-6" id="left-side">
 
-                    <img src="img/notedetails/first.jpg" alt="" class="img-responsive">
+                    <img src="<?php if(!empty($note_pic)){echo $note_pic ;}else {echo 'img/Search/1.jpg'; }?>" alt="" class="img-fluid">
 
                     <div id="right" class="">
                         <h3><?php echo $note_title; ?></h3>
