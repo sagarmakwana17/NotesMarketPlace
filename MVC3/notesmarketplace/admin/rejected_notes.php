@@ -223,8 +223,15 @@ if(mysqli_num_rows($admin_info) != 0){
                 <div class="table-title row">
                     <div class="col-6">
                         <p>Rejected Notes</p>
+                        <?php
+                        if(isset($_POST['user'])){
+                            echo "done";
+                        }
+                        ?>
+                      
+                       
 
-                        <select id="month" class="form-control" name="university">
+                        <select id="month" class="form-control" name="">
                             <option value="" disabled selected>Seller</option>
                             <?php
                                         $query = "SELECT DISTINCT FirstName FROM users";
@@ -283,14 +290,29 @@ if(mysqli_num_rows($admin_info) != 0){
                             }    
                             $num_per_page = 5;
                             $start_from = ($page-1) * $num_per_page;
-                            
-                             if(isset($_POST['submit'])){
+                            ?>
+                            <div class="temp">
+                                <?php
+                                 if(isset($_POST['submit'])){
                                 $search = $_POST['search'];
                                  $query = "SELECT * FROM sellernotes WHERE Status = 'rejected' AND Title LIKE '{$search}%' OR Category LIKE '{$search}%' ";
                              }
+                        
+                        
                             else{
-                            $query = "SELECT * FROM sellernotes WHERE Status = 'rejected' ";
+                           
+                             $query = "SELECT * FROM sellernotes AS s JOIN users AS u ON s.SellerID = u.ID WHERE Status = 'rejected' AND s.IsActive = 1 "; 
+                     
                             }
+                        
+                                
+                                ?>
+                                
+                            </div>
+                            
+                            <?php
+                            
+                            
                         
                           $published_notes = mysqli_query($connection,$query);
 
@@ -335,13 +357,8 @@ if(mysqli_num_rows($admin_info) != 0){
                                  die(mysqli_error($connection));
                              }
                             $download_num = mysqli_num_rows($downloads_query);
-                            $file = "SELECT FilePath FROM sellernotesattachements WHERE NoteID = $n_id";
-                            $file_query = mysqli_query($connection,$file);
-                            if(!$file_query){
-                                 die(mysqli_error($connection));
-                             }
-                            $file = mysqli_fetch_assoc($file_query);
-                            $file_path = $file['FilePath'];
+                            
+                            $file_path = $row['FilePath'];
                            
                             if($start_from<$i){
 
@@ -369,7 +386,7 @@ if(mysqli_num_rows($admin_info) != 0){
                                         </div>
                                     </a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item text-center" href="<?php echo '../'.$file_path; ?>" download>Download Note</a>
+                                        <a class="dropdown-item text-center" href="../<?php echo $file_path; ?>" download>Download Note</a>
                                         <a class="dropdown-item text-center" href="<?php echo '../note_details.php?note_id='.$n_id ;?>">View More Details</a>
                                         <a class="dropdown-item text-center" data-toggle="modal" data-target="#p<?php echo $srno; ?>">Approve</a>
                                     </div>
@@ -444,7 +461,7 @@ if(mysqli_num_rows($admin_info) != 0){
                 <nav aria-label="Page navigation example" id="pagination" style="margin-top : 20px;">
                     <ul class="pagination d-flex justify-content-center">
                         <li class="page-item  <?php if($page == 1){ echo 'disabled'; }?>">
-                            <a class="page-link" href="dashboard.php?page=<?php echo $page-1; ?>" aria-label="Previous">
+                            <a class="page-link" href="rejected_notes.php?page=<?php echo $page-1; ?>" aria-label="Previous">
                                 <span aria-hidden="true">&#60;</span>
                             </a>
                         </li>
@@ -452,7 +469,7 @@ if(mysqli_num_rows($admin_info) != 0){
                             for($i=1;$i<=$total_pages;$i++){
                         ?>
                         <li class="page-item">
-                            <a class="page-link <?php if($page == $i) { echo 'active'; }?>" href="dashboard.php?page=<?php echo $i ; ?>"><?php echo $i ;?></a>
+                            <a class="page-link <?php if($page == $i) { echo 'active'; }?>" href="rejected_notes.php?page=<?php echo $i ; ?>"><?php echo $i ;?></a>
                         </li>
                         <?php 
                             }
@@ -462,7 +479,7 @@ if(mysqli_num_rows($admin_info) != 0){
 
 
                         <li class="page-item <?php if($page == $total_pages){ echo 'disabled'; }?>">
-                            <a class="page-link" href="dashboard.php?page=<?php echo $page-1; ?>" aria-label="Next">
+                            <a class="page-link" href="rejected_notes.php?page=<?php echo $page-1; ?>" aria-label="Next">
                                 <span aria-hidden="true">&#62;</span>
                             </a>
                         </li>
@@ -524,6 +541,8 @@ if(mysqli_num_rows($admin_info) != 0){
     <script src="js/bootstrap.min.js"></script>
     <!--Custom js-->
     <script src="js/script.js"></script>
+    <script src="js/filter_rejected_notes.js"></script>
+    
     <script src="js/loader.js"></script>
 </body>
 

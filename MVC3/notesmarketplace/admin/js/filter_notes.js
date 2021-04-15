@@ -14,7 +14,7 @@ $(document).ready(function () {
     $("#note").on('change', function () {
         var value = $(this).val();
         $.ajax({
-            url: "filter_downloaded_notes.php",
+            url: "",
             type: "POST",
             data: 'note=' + value,
             beforeSend: function () {
@@ -48,26 +48,9 @@ $(document).ready(function () {
 
 });
 
-/*notes_under-review filter*/
 
-$(document).ready(function () {
 
-    $(".user").on('change', function () {
-        var value = $(this).val();
-        $.ajax({
-            url: "filter.php",
-            type: "POST",
-            data: 'user=' + value,
-            beforeSend: function () {
-                $(".progres").html("<span>Working on it......</span>");
-            },
-            success: function (data) {
-                $(".progres").html(data);
-            }
-        });
-    });
 
-});
 
 
 

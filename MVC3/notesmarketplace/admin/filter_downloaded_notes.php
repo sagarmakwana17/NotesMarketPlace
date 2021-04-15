@@ -18,7 +18,7 @@ include"../includes/database.php";
 
                 if(isset($_POST['note'])){
                     
-                   echo $note = $_POST['note'];
+                   $note = $_POST['note'];
                    
                 ?>   
                 

@@ -249,6 +249,11 @@ if(mysqli_num_rows($admin_info) != 0){
 
                     </div>
                     <div class="col-6">
+                        <?php
+                        if(isset($_POST['user'])){
+                            echo "done";
+                        }
+                        ?>
 
                         <form class="form-inline" method="post">
 
@@ -292,10 +297,10 @@ if(mysqli_num_rows($admin_info) != 0){
                             
                              if(isset($_POST['submit'])){
                                 $search = $_POST['search'];
-                                 $query = "SELECT * FROM sellernotes WHERE Status = 'submitted' AND Title LIKE '{$search}%' OR Category LIKE '{$search}%' ";
+                                 $query = "SELECT * FROM sellernotes WHERE Status = 'submitted' AND IsActive = 1 AND Title LIKE '{$search}%' OR Category LIKE '{$search}%' ";
                              }
                             else{
-                            $query = "SELECT * FROM sellernotes WHERE Status = 'submitted' ";
+                            $query = "SELECT * FROM sellernotes WHERE Status = 'submitted' AND IsActive = 1 ";
                             }
                         
                     $published_notes = mysqli_query($connection,$query);

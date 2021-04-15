@@ -168,7 +168,7 @@ if(mysqli_num_rows($admin_info) != 0){
                         <h4><?php echo $note_cat; ?></h4>
                         <p><?php echo $note_desc; ?></p>
                         <?php
-                        if(isset($_GET['user_id'])){
+                        if(isset($user_id)){
                             
                     ?>
                         <?php 

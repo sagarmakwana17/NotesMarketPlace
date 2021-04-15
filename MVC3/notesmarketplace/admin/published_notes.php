@@ -345,13 +345,8 @@ if(mysqli_num_rows($admin_info) != 0){
                                  die(mysqli_error($connection));
                              }
                             $download_num = mysqli_num_rows($downloads_query);
-                            $file = "SELECT FilePath FROM sellernotesattachements WHERE NoteID = $n_id";
-                            $file_query = mysqli_query($connection,$file);
-                            if(!$file_query){
-                                 die(mysqli_error($connection));
-                             }
-                            $file = mysqli_fetch_assoc($file_query);
-                            $file_path = $file['FilePath'];
+                           
+                            $file_path = $row['FilePath'];
                            
                             if($start_from<$i){
 
