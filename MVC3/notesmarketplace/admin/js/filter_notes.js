@@ -11,42 +11,23 @@
 
 $(document).ready(function () {
 
-    $("#note").on('change', function () {
+    $("#month").on('change', function () {
         var value = $(this).val();
         $.ajax({
-            url: "",
+            url: "filter_downloaded_notes",
             type: "POST",
             data: 'note=' + value,
             beforeSend: function () {
-                $(".d_notes").html("<span>Working on it......</span>");
+                $(".table-responsive").html("<span>Working on it......</span>");
             },
             success: function (data) {
-                $(".d_notes").html(data);
+                $(".table-responsive").html(data);
             }
         });
     });
 
 });
 
-
-$(document).ready(function () {
-
-    $("#seller").on('change', function () {
-        var value = $(this).val();
-        $.ajax({
-            url: "filter_downloaded_notes.php",
-            type: "POST",
-            data: 'seller=' + value,
-            beforeSend: function () {
-                $(".d_notes").html("<span>Working on it......</span>");
-            },
-            success: function (data) {
-                $(".d_notes").html(data);
-            }
-        });
-    });
-
-});
 
 
 

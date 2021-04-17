@@ -392,7 +392,7 @@ if(mysqli_num_rows($admin_info) != 0){
                 <nav aria-label="Page navigation example" id="pagination" style="margin-top : 20px;">
                     <ul class="pagination d-flex justify-content-center">
                         <li class="page-item  <?php if($page == 1){ echo 'disabled'; }?>">
-                            <a class="page-link" href="dashboard.php?page=<?php echo $page-1; ?>" aria-label="Previous">
+                            <a class="page-link" href="manage_country.php?page=<?php echo $page-1; ?>" aria-label="Previous">
                                 <span aria-hidden="true">&#60;</span>
                             </a>
                         </li>
@@ -400,7 +400,7 @@ if(mysqli_num_rows($admin_info) != 0){
                             for($i=1;$i<=$total_pages;$i++){
                         ?>
                         <li class="page-item">
-                            <a class="page-link <?php if($page == $i) { echo 'active'; }?>" href="dashboard.php?page=<?php echo $i ; ?>"><?php echo $i ;?></a>
+                            <a class="page-link <?php if($page == $i) { echo 'active'; }?>" href="manage_country.php?page=<?php echo $i ; ?>"><?php echo $i ;?></a>
                         </li>
                         <?php 
                             }
@@ -410,7 +410,7 @@ if(mysqli_num_rows($admin_info) != 0){
 
 
                         <li class="page-item <?php if($page == $total_pages){ echo 'disabled'; }?>">
-                            <a class="page-link" href="dashboard.php?page=<?php echo $page-1; ?>" aria-label="Next">
+                            <a class="page-link" href="manage_country.php?page=<?php echo $page-1; ?>" aria-label="Next">
                                 <span aria-hidden="true">&#62;</span>
                             </a>
                         </li>

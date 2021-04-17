@@ -252,14 +252,14 @@ if(mysqli_num_rows($admin_info) != 0){
                         <p>In Progress Notes</p>
                     </div>
                     <div class="col-6">
-                        <form class="form-inline">
+                        <form class="form-inline" method="post">
 
-                            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search">
+                            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search" name="search">
 
+                            <button type="submit" class="btn btn-primary mb-2" name="submit">Submit</button>
 
-
-                            <button type="submit" class="btn btn-primary mb-2">Submit</button>
                         </form>
+
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -276,8 +276,27 @@ if(mysqli_num_rows($admin_info) != 0){
 
                         <?php
                         
+                         if(isset($_GET['page'])){
+                            $page = $_GET['page'];
+                            $page =mysqli_real_escape_string($connection,$page);
+                            $page = htmlentities($page);
+                            }
+                            else{
+                                $page = 1;
+                            }    
+                            $num_per_page = 5;
+                            $start_from = ($page-1) * $num_per_page;
                         
-                        $query = "SELECT * FROM sellernotes WHERE SellerID = '{$user_id}'";
+                         if(isset($_POST['submit'])){
+                            $search = $_POST['search'];
+                            $query = "SELECT * FROM sellernotes WHERE SellerID = '{$user_id}' AND Title LIKE '{$search}%' OR Category LIKE '{$search}%'   "; 
+
+                        }else{
+                        
+                            $query = "SELECT * FROM sellernotes WHERE SellerID = '{$user_id}'";
+                        }
+                        
+                        
                         
                         
                         
@@ -285,16 +304,24 @@ if(mysqli_num_rows($admin_info) != 0){
                         if(!$get_table_data){
                             die("FAILED".mysqli_error($connection));
                         }
+                         $total_records = mysqli_num_rows($get_table_data); 
+                         $total_pages = ceil($total_records / $num_per_page);
+                        $i=1;
+                        $k=  $num_per_page + $start_from;
+                        $srno = 0;
                         
                         while($row = mysqli_fetch_assoc($get_table_data)){
+                            $srno++;
                             $note_id = $row['ID'];
                             $date = $row['CreatedDate'];
                             $title= $row['Title'];
                             $cat  = $row['Category'];
                             $status = $row['Status'];
                             
-                            
+                             if($start_from<$i){
+
                             if($status == 'draft'){
+                                
                             
                             
                     ?>
@@ -339,6 +366,11 @@ if(mysqli_num_rows($admin_info) != 0){
                         <?php
                             }
                         }
+                             $i++;
+                                if($i>$k){
+                                    break;
+                                }
+                        }
 
 
                         ?>
@@ -347,26 +379,40 @@ if(mysqli_num_rows($admin_info) != 0){
 
                     </table>
                 </div>
+                 <?php
+                if($total_records==0){
+                    echo" <p class='text-center' style= 'font-size:26px; margin-top : 20px; color:#6255a5; font-weight:600'>No Records Found !</p>";
+                }
+                ?>
 
-                <nav aria-label="Page navigation example">
+                 <nav aria-label="Page navigation example" id="pagination" style="margin-top : 20px;">
                     <ul class="pagination d-flex justify-content-center">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
+                        <li class="page-item  <?php if($page == 1){ echo 'disabled'; }?>">
+                            <a class="page-link" href="dashboard.php?page=<?php echo $page-1; ?>" aria-label="Previous">
                                 <span aria-hidden="true">&#60;</span>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <?php 
+                            for($i=1;$i<=$total_pages;$i++){
+                        ?>
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
+                            <a class="page-link <?php if($page == $i) { echo 'active'; }?>" href="dashboard.php?page=<?php echo $i ; ?>"><?php echo $i ;?></a>
+                        </li>
+                        <?php 
+                            }
+                        ?>
+
+
+
+
+                        <li class="page-item <?php if($page == $total_pages){ echo 'disabled'; }?>">
+                            <a class="page-link" href="dashboard.php?page=<?php echo $page-1; ?>" aria-label="Next">
                                 <span aria-hidden="true">&#62;</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
+
 
             </div>
         </div>

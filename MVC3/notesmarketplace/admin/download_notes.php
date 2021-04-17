@@ -247,8 +247,8 @@ if(mysqli_num_rows($admin_info) != 0){
                         <form class="form-inline" method="post" id="filters">
 
 
-                            <select id="note" class="form-control" name="">
-                                <option value="" disabled selected>Select Note</option>
+                            <select id="" class="form-control note" name="">
+                                <option value="" >Select Note</option>
                                 <?php
                                         $query = "SELECT DISTINCT Title FROM sellernotes";
                                         $title = mysqli_query($connection,$query);
@@ -263,8 +263,8 @@ if(mysqli_num_rows($admin_info) != 0){
 
 
                             </select>
-                            <select id="seller" class="form-control" name="">
-                                <option value="" disabled selected>Select Seller</option>
+                            <select id="seller" class="form-control seller" name="">
+                                <option value="" >Select Seller</option>
                                 <?php
                                         $query = "SELECT DISTINCT FirstName FROM users";
                                         $universities = mysqli_query($connection,$query);
@@ -279,8 +279,8 @@ if(mysqli_num_rows($admin_info) != 0){
 
 
                             </select>
-                            <select id="buyer" class="form-control" name="">
-                                <option value="" disabled selected>Select Buyer</option>
+                            <select id="buyer" class="form-control buyer" name="">
+                                <option value="" >Select Buyer</option>
                                 <?php
                                         $query = "SELECT DISTINCT FirstName FROM users";
                                         $universities = mysqli_query($connection,$query);
@@ -548,7 +548,7 @@ if(mysqli_num_rows($admin_info) != 0){
     <script src="js/bootstrap.min.js"></script>
     <!--Custom js-->
     <script src="js/script.js"></script>
-    <script src="js/filter_notes.js"></script>
+    <script src="js/downloaded_notes.js"></script>
     <script src="js/loader.js"></script>
 </body>
 

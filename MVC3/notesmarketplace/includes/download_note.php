@@ -36,7 +36,7 @@ if(!empty($_GET['note_location'])){
     
     
     
-     $query = "INSERT INTO downloads(NoteID,Seller,Downloader,IsSellerHasAllowedDownload,IsAttachmentDownloaded,AttachmentDownloadedDate,IsPaid,PurchasedPrice,NoteTitle,NoteCategory,CreatedDate) VALUES('{$note_id}','$seller_id','{$user_id}','1','1',now(),'0',,0,'{$note_title}','{$note_cat}',now())";
+     $query = "INSERT INTO downloads(NoteID,Seller,Downloader,IsSellerHasAllowedDownload,IsAttachmentDownloaded,AttachmentDownloadedDate,IsPaid,PurchasedPrice,NoteTitle,NoteCategory,CreatedDate) VALUES({$note_id},$seller_id,{$user_id},1,1,now(),0,0,'{$note_title}','{$note_cat}',now())";
             $insert_query = mysqli_query($connection,$query);
             if(!$insert_query){
                 die(mysqli_error($connection));
