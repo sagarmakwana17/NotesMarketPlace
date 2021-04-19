@@ -176,11 +176,11 @@ if(mysqli_num_rows($admin_info) != 0){
 
                         if(isset($_POST['submit'])){
                             $search = $_POST['search'];
-                            $query = "SELECT * FROM sellernotes WHERE Title LIKE '{$search}%' AND Status = 'rejected' "; 
+                            $query = "SELECT * FROM sellernotes WHERE Title LIKE '{$search}%' AND Status = 'rejected' AND SellerID = $user_id "; 
 
                         }else{
                         
-                            $query = "SELECT * FROM sellernotes WHERE Status = 'rejected' ";
+                            $query = "SELECT * FROM sellernotes WHERE Status = 'rejected' AND SellerID = $user_id ";
                         }
                     $rejected_notes = mysqli_query($connection,$query);
                             
@@ -253,32 +253,7 @@ if(mysqli_num_rows($admin_info) != 0){
                                  }
                         ?>
 
-                        <tr>
-                            <td>#</td>
-                            <td>static</td>
-                            <td>static category</td>
-                           
-                            <td>Inappropriate Content</td>
-                            <td>Clone</td>
-                          
-                            
-                            <td>
-
-                                <div class="dropdown">
-                                    <a class="" data-toggle="dropdown">
-                                        <div class="dots">
-                                            <img src="img/images/dots.png">
-                                        </div>
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item text-center">Download Note</a>
-                                        
-
-                                    </div>
-                                </div>
-                            </td>
-
-                        </tr>
+                       
 
                     </table>
                 </div>
@@ -288,6 +263,11 @@ if(mysqli_num_rows($admin_info) != 0){
                     }
 
                 </style>
+                  <?php
+                if($total_records==0){
+                    echo" <p class='text-center' style= 'font-size:26px; margin-top : 20px; color:#6255a5; font-weight:600'>No Records Found !</p>";
+                }
+                ?>
                 <nav aria-label="Page navigation example" id="pagination">
                     <ul class="pagination d-flex justify-content-center">
                         <li class="page-item  <?php if($page == 1){ echo 'disabled'; }?>">

@@ -1,6 +1,25 @@
 <?php
 include"includes/database.php";
 ?>
+<?php
+ session_start();
+
+?>
+<?php
+if(!isset($_SESSION['user_id'])){
+    
+?>
+<script>
+    location.replace('login.php');
+
+</script>
+<?php
+    
+}else{
+    $user_id = $_SESSION['user_id'];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,11 +48,7 @@ include"includes/database.php";
                     ob_start();
                     if(isset($_POST['change_password'])){
                         
-                        if(isset($_GET['user_id'])){
-                            $user_id = $_GET['user_id'];
-                        }else{
-                            $user_id = 15;
-                        }
+                       
                        
                         $old_password = $_POST['old_password'];
                          $new_password = $_POST['new_password'];

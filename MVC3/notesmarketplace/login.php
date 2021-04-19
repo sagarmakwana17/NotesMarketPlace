@@ -62,6 +62,7 @@ include"includes/database.php";
                               
                         }
                          else if($email == $db_email_id &&  $password ==$db_password && $db_role_id=='2' && $is_email_verified ==0 ){
+                             $_SESSION['user_id'] = $db_id;
                              $_SESSION['email'] = $db_email_id;
                               $_SESSION['login_first_name'] =  $db_first_name
                          ?>
@@ -92,7 +93,7 @@ include"includes/database.php";
      <!--BOOTSTRAP CSS-->
      <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
      <!--Custom CSS-->
-     <link rel="stylesheet" href="css/log_in.css">
+     <link rel="stylesheet" href="css/sign_in.css">
      <link rel="stylesheet" href="admin/css/preloader.css">
      <link rel="stylesheet" href="css/responsive1.css">
      <title>Login</title>
@@ -105,105 +106,7 @@ include"includes/database.php";
        </center>
    </div>
      <style>
-         .form-container {
-             background-color: white;
-             padding: 50px;
-             width: 60%;
-             border: 1px solid #6255a5;
-             border-radius: 6px;
-             margin-top: 25px;
-         }
-
-         .container {
-             margin-top: 50px;
-         }
-
-
-         label {
-             font-family: "Open Sans", sans-serif;
-             font-size: 16px;
-             font-weight: 400;
-             line-height: 20px;
-             color: #333333;
-             text-align: left !important;
-         }
-
-         label span a {
-             color: #6255a5;
-             margin-left: 280px;
-             font-family: "Open Sans", sans-serif;
-             font-size: 16px;
-             font-weight: 400;
-             line-height: 20px;
-         }
-
-         .form-control {
-             border: 1px solid #6255a5;
-             width: 480px;
-             height: 50px;
-             border-radius: 3px;
-         }
-
-         ::placeholder {
-             font-family: "Open Sans", sans-serif;
-             font-size: 16px;
-             font-weight: 400;
-             line-height: 20px;
-             color: #8a8a8a;
-         }
-
-         .field-icon {
-             float: right;
-            margin-left:200px;
-             margin-top: -30px;
-             position: absolute;
-             z-index: 2;
-              font-size: 26px;
-             font-weight: 400;
-             line-height: 20px;
-             color: #8a8a8a;
-         }
-
-
-         @media (max-width:1205px) {
-
-             .form-control {
-                 width: 220px;
-             }
-
-             .btn-primary {
-                 width: 220px;
-             }
-
-             label span a {
-                 margin-left: 50px;
-             }
-             .field-icon {
-                  margin-left:70px;
-             }
-
-
-         }
-
-         @media (max-width:528px) {
-             .form-container {
-                 width: 90%;
-             }
-
-             label span a {
-                 margin-left: 20px;
-                 font-size: 11px;
-
-             }
-
-             label {
-                 font-size: 12px;
-             }
-               .field-icon {
-                  font-size: 16px;
-             }
-
-         }
+         
 
      </style>
      <div class="container">

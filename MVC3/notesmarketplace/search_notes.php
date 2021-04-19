@@ -60,11 +60,11 @@ if(mysqli_num_rows($admin_info) != 0){
                                         <span id="mobile-nav-open-btn">&#9776;</span>
                                     </a>
                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="<?php if(isset($user_id)){ echo 'user_profile.php?user_id='.$user_id;}else {echo 'login.php';}?>">My Profile</a>
-                                        <a class="dropdown-item" href="my_downloads.php?<?php echo'user_id='.$user_id; ?>">My Downloads</a>
-                                        <a class="dropdown-item" href="my_sold_notes.php?<?php echo'user_id='.$user_id; ?>">My Sold Notes</a>
-                                        <a class="dropdown-item"  href="my_rejected_notes.php?<?php echo'user_id='.$user_id; ?>">My Rejected Notes</a>
-                                        <a class="dropdown-item" href="change_password.php?<?php echo'user_id='.$user_id; ?>">Change Password</a>
+                                        <a class="dropdown-item" href="user_profile.php">My Profile</a>
+                                        <a class="dropdown-item" href="my_downloads.php">My Downloads</a>
+                                        <a class="dropdown-item" href="my_sold_notes.php">My Sold Notes</a>
+                                        <a class="dropdown-item"  href="my_rejected_notes.php">My Rejected Notes</a>
+                                        <a class="dropdown-item" href="change_password.php">Change Password</a>
                                         <a class="dropdown-item" href="logout.php">Log out</a>
                                     </div>
                                 </div>
@@ -85,11 +85,11 @@ if(mysqli_num_rows($admin_info) != 0){
                                                     <img src="img/images/user-img.png" alt="">
                                                 </a>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <a class="dropdown-item" href="<?php if(isset($user_id)){ echo 'user_profile.php?user_id='.$user_id;}else {echo 'login.php';}?>">My Profile</a><br>
-                                                    <a class="dropdown-item" href="<?php if(isset($user_id)){ echo 'my_downloads.php?user_id='.$user_id;}else {echo 'login.php';}?>">My Downloads</a><br>
-                                                    <a class="dropdown-item" href="<?php if(isset($user_id)){ echo 'my_sold_notes.php?user_id='.$user_id;}else {echo 'login.php';}?>">My Sold Notes</a><br>
-                                                    <a class="dropdown-item" href="<?php if(isset($user_id)){ echo 'my_rejected_notes.php?user_id='.$user_id;}else {echo 'login.php';}?>">My Rejected Notes</a><br>
-                                                    <a class="dropdown-item" href="<?php if(isset($user_id)){ echo 'change_password.php?user_id='.$user_id;}else {echo 'login.php';}?>">Change Password</a><br>
+                                                    <a class="dropdown-item" href="user_profile.php">My Profile</a><br>
+                                                    <a class="dropdown-item" href="my_downloads.php">My Downloads</a><br>
+                                                    <a class="dropdown-item" href="my_sold_notes.php">My Sold Notes</a><br>
+                                                    <a class="dropdown-item" href="my_rejected_notes.php">My Rejected Notes</a><br>
+                                                    <a class="dropdown-item" href="change_password.php">Change Password</a><br>
                                                     <a class="dropdown-item" href="logout.php">Log Out</a>
                                                 </div>
                                             </div>
@@ -254,7 +254,7 @@ if(mysqli_num_rows($admin_info) != 0){
                     $start_from = ($page-1) * $num_per_page;
                 
                 
-                    $query = "SELECT * FROM sellernotes";
+                    $query = "SELECT * FROM sellernotes WHERE Status = 'published'";
                     $all_notes = mysqli_query($connection,$query);
                     if(!$all_notes){
                         die("FAILED TO LOAD NOIES".mysqli_error($connection));

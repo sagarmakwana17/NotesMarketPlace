@@ -270,34 +270,7 @@ if(mysqli_num_rows($admin_info) != 0){
                                  }
                         ?>
 
-                        <tr>
-                            <td>1</td>
-                            <td>static</td>
-                            <td>static category</td>
-                            <td>static@gmail.com</td>
-
-                            <td>Paid</td>
-                            <td>$50</td>
-                            <td>10-10-20</td>
-                            <td><img src="img/images/eye.png"></td>
-                            <td>
-
-                                <div class="dropdown">
-                                    <a class="" data-toggle="dropdown">
-                                        <div class="dots">
-                                            <img src="img/images/dots.png">
-                                        </div>
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item text-center">Download Note</a>
-                                        
-
-                                    </div>
-                                </div>
-                            </td>
-
-                        </tr>
-
+                       
                     </table>
                 </div>
                 <style>
@@ -306,6 +279,11 @@ if(mysqli_num_rows($admin_info) != 0){
                     }
 
                 </style>
+                  <?php
+                if($total_records==0){
+                    echo" <p class='text-center' style= 'font-size:26px; margin-top : 20px; color:#6255a5; font-weight:600'>No Records Found !</p>";
+                }
+                ?>
                 <nav aria-label="Page navigation example" id="pagination">
                     <ul class="pagination d-flex justify-content-center">
                         <li class="page-item  <?php if($page == 1){ echo 'disabled'; }?>">

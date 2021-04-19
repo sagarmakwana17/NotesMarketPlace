@@ -103,7 +103,7 @@ if(isset($_GET['download_id'])&& isset($_GET['user_id']) ){
                             
                     ?>
                        <script>
-                                    location.replace('../buyer_requests.php?user_id=<?php echo $user_id; ?>');
+                                    location.replace('buyer_requests.php?user_id=<?php echo $user_id; ?>');
                          </script>
                     <?php                 
                         

@@ -151,13 +151,12 @@ if(mysqli_num_rows($admin_info) != 0){
                         <p>My Downloads</p>
                     </div>
                     <div class="col-6">
-                        <form class="form-inline">
+                         <form class="form-inline" method="post">
 
-                            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search">
+                            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search" name="search">
 
+                            <button type="submit" class="btn btn-primary mb-2" name="submit">Submit</button>
 
-
-                            <button type="submit" class="btn btn-primary mb-2">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -193,8 +192,15 @@ if(mysqli_num_rows($admin_info) != 0){
                     $start_from = ($page-1) * $num_per_page;
 
                         
+                         if(isset($_POST['submit'])){ 
+                                $search = $_POST['search'];
+                                 $query = "SELECT d.*, s.Title, s.Category, s.IsPaid, s.SellingPrice, s.FilePath FROM downloads AS d JOIN sellernotes AS s ON d.NoteID = s.ID  WHERE d.Downloader = $user_id AND d.IsSellerHasAllowedDownload = 1 AND s.Title LIKE '{$search}%'";
+                             }
+                            else{
+                             $query = "SELECT d.*, s.Title, s.Category, s.IsPaid, s.SellingPrice, s.FilePath FROM downloads AS d JOIN sellernotes AS s ON d.NoteID = s.ID  WHERE d.Downloader = $user_id && d.IsSellerHasAllowedDownload = 1 ";
+                            }
                         
-                     $query = "SELECT d.*, s.Title, s.Category, s.IsPaid, s.SellingPrice, s.FilePath FROM downloads AS d JOIN sellernotes AS s ON d.NoteID = s.ID  WHERE d.Downloader = $user_id && d.IsSellerHasAllowedDownload = 1 ";
+                    
 
                     $buyer_requests = mysqli_query($connection,$query);
                             
@@ -420,38 +426,7 @@ if(mysqli_num_rows($admin_info) != 0){
                                  }
                         ?>
 
-                        <tr>
-                            <td>1</td>
-                            <td>static</td>
-                            <td>static category</td>
-                            <td>static@gmail.com</td>
-
-                            <td>Paid</td>
-                            <td>$50</td>
-                            <td>10-10-20</td>
-                            <td><img src="img/images/eye.png"></td>
-                            <td>
-
-                                <div class="dropdown">
-                                    <a class="" data-toggle="dropdown">
-                                        <div class="dots">
-                                            <img src="img/images/dots.png">
-                                        </div>
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item text-center">Download Note</a>
-                                        <!-- Modal -->
-
-                                        <a class="dropdown-item text-center">Add Reviews/Feedback</a>
-
-                                        <a class="dropdown-item text-center" href="#">Report as inappropriate</a>
-
-                                    </div>
-                                </div>
-                            </td>
-
-                        </tr>
-
+                       
                     </table>
                 </div>
                 <style>
@@ -460,6 +435,11 @@ if(mysqli_num_rows($admin_info) != 0){
                     }
 
                 </style>
+                 <?php
+                if($total_records==0){
+                    echo" <p class='text-center' style= 'font-size:26px; margin-top : 20px; color:#6255a5; font-weight:600'>No Records Found !</p>";
+                }
+                ?>
                 <nav aria-label="Page navigation example" id="pagination">
                     <ul class="pagination d-flex justify-content-center">
                         <li class="page-item  <?php if($page == 1){ echo 'disabled'; }?>">
@@ -503,7 +483,7 @@ if(mysqli_num_rows($admin_info) != 0){
                                                         die(mysqli_error($connection));
                                                     }
                                                     if(mysqli_num_rows($fetch_reviews) == 0){
-                                                        $insert_review = "INSERT INTO sellernotesreviews(NoteID,ReviewedByID,AgainstDownloadsID,Ratings,Comments,CreatedDate) VALUES($n_id,$u_id,$d_id,$rating,'$comment',now()) ";
+                                                        $insert_review = "INSERT INTO sellernotesreviews(NoteID,ReviewedByID,AgainstDownloadsID,Ratings,Comments,CreatedDate) VALUES($n_id,$u_id,$d_id,$rating,'$comment',now())";
                                                         $insert_query = mysqli_query($connection,$insert_review);
                                                         if(!$insert_query){
                                                             die(mysqli_error($connection));

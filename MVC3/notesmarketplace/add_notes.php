@@ -182,7 +182,7 @@ if(mysqli_num_rows($admin_info) != 0){
                                             move_uploaded_file($file_tmp_name, $file_destination);
                                             $display_pic =  $file_destination;
                                         }else{
-                                            echo "your file is too big";
+                                             $display_pic_size_error ="your file is too big";
                                         }
                                     }else{
                                         $display_pic_upload_error = "Failed to upload";
@@ -499,7 +499,11 @@ if(mysqli_num_rows($admin_info) != 0){
 
                             <label for="display-picture">display-picture</label>
                             <input type="file" class="form-control" id="display-picture" placeholder="" name="display_picture" style="">
-
+                            <?php
+                        if(isset($display_pic_type_error)){
+                            echo "<p style='margin-left: 0px !important; text-align:left !important; color:red'>$display_pic_type_error</p>";
+                        }
+                    ?>
 
                         </div>
                         <div class="form-group col-md-6">

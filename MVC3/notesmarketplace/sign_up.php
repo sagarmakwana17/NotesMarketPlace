@@ -55,7 +55,7 @@ include"includes/database.php";
                             $password_err = "Password Must contain at least 1 special character,1 lowercase character and it should be 6 to 28 digits long !";
                         }
                           
-                        else if(preg_match('/(?=.*[a-z])(?=.*[0-9])(?=.*[@?!#$^%&*])[a-zA-Z0-9@?!#$^%&*]{6,28}/', $password1) && $password1=$password2 && !empty($first_name) && !empty($last_name) && !empty($email) && !preg_match('/[0-9]/', $first_name) && !preg_match('/[0-9]/', $last_name) ){
+                        else if(preg_match('/(?=.*[a-z])(?=.*[0-9])(?=.*[@?!#$^%&*])[a-zA-Z0-9@?!#$^%&*]{6,28}/', $password1) && $password1==$password2 && !empty($first_name) && !empty($last_name) && !empty($email) && !preg_match('/[0-9]/', $first_name) && !preg_match('/[0-9]/', $last_name) ){
                         
                             $query = "INSERT INTO users(RoleID,FirstName,LastName,EmailID,Password,CreatedDate) VALUES(2,'{$first_name}','{$last_name}','{$email}','$password2',now())";
                             $registration_query = mysqli_query($connection, $query);

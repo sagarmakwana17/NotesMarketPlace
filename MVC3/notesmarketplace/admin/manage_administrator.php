@@ -40,8 +40,6 @@ if(mysqli_num_rows($admin_info) != 0){
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 

@@ -312,9 +312,10 @@ if(mysqli_num_rows($admin_info) != 0){
                          $total_pages = ceil($total_records / $num_per_page);
                         $i=1;
                         $k=  $num_per_page + $start_from;
-                        $srno = 1;
+                        $srno = 0;
                          $count = 0;
                         while($row = mysqli_fetch_assoc($published_notes)){
+                            $srno++;
                              $count = $count + 1;
                                 if($row['IsPaid'] == 'no'){
                                     $selltype = "Free";
@@ -360,7 +361,7 @@ if(mysqli_num_rows($admin_info) != 0){
 
                             <td><?php echo  $publisher; ?></td>
                             <td>
-                                <a class="" href="">
+                                <a class="" href="../note_details.php?note_id=<?php echo $n_id; ?>">
                                     <div class="dots">
                                         <img src="../img/images/eye.png">
                                     </div>
@@ -369,16 +370,16 @@ if(mysqli_num_rows($admin_info) != 0){
                             <td><?php echo $publish_date; ?></td>
                             <td><?php echo $status; ?></td>
                             <td>
-                                <button type="" id="approve" class="btn btn-primary mb-2 t-button" name="submit" data-toggle="modal" data-target="#exampleModal2" >APPROVE</button>
+                                <button type="" id="approve" class="btn btn-primary mb-2 t-button" name="submit" data-toggle="modal" data-target="#a<?php echo $srno; ?>" >APPROVE</button>
 
                             </td>
                             <td>
-                                <button type="" id="reject" class="btn btn-primary mb-2 t-button" name="" data-toggle="modal" data-target="#exampleModal1">REJECT</button>
+                                <button type="" id="reject" class="btn btn-primary mb-2 t-button" name="" data-toggle="modal" data-target="#r<?php echo $srno; ?>">REJECT</button>
 
                             </td>
                             <td>
 
-                                <button type="submit" id="inreview" class="btn btn-primary mb-2 t-button" name="submit" data-toggle="modal" data-target="#exampleModal3">INREVIEW</button>
+                                <button type="submit" id="inreview" class="btn btn-primary mb-2 t-button" name="submit" data-toggle="modal" data-target="#i<?php echo $srno; ?>">INREVIEW</button>
 
                             </td>
 
@@ -387,7 +388,7 @@ if(mysqli_num_rows($admin_info) != 0){
                         </tr>
                         <!--modal for reject-->
 
-                        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="r<?php echo $srno; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="head">
@@ -397,36 +398,15 @@ if(mysqli_num_rows($admin_info) != 0){
                                         </button>
                                         <div class="title">
                                             <h4><?php echo $title;?></h4>
+                                            <h4 style="font-size:16px;">Are You Sure You Want to reject this note?</h4>
                                         </div>
-
-                                        <?php
-                                            if(isset($_POST['reject'])){
-                                                $remark = $_POST['remark'];
-                                                $unpublish = "UPDATE sellernotes SET Status = 'rejected', AdminRemarks = '$remark' WHERE ID = $n_id ";
-                                                $unpublish_query = mysqli_query($connection,$unpublish);
-                                                if(!unpublish_query){
-                                                    die(mysqli_error($connection));
-                                                }
-
-                                            }
-                                            ?>
-                                        <form action="" method="post" id="" class="col-md-12">
-
-                                            <div class="form-row ">
-                                                <div class="form-group">
-                                                    <label for="title">Remarks<span style="margin-left: 0px !important; text-align:left !important; color:red"> *</span></label>
-                                                    <input type="text" class="form-control" id="remark" placeholder="Remarks....." name="remark" required>
-                                                </div>
-
-                                            </div>
-
                                         
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
-                                        <button type="submit" class="btn btn-primary t-button" id="reject" name="reject">REJECT</button>
+                                        <a class="btn btn-primary" href="reject_note.php?note_id=<?php echo $n_id ?>" role="button" id="reject" style="margin-right:50px; " >YES</a>
                                     </div>
-                                    </form>
+                                   
 
                                 </div>
                             </div> 
@@ -434,7 +414,7 @@ if(mysqli_num_rows($admin_info) != 0){
                         
                         <!--modal for approve-->
                         
-                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="a<?php echo $srno; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="head">
@@ -463,7 +443,7 @@ if(mysqli_num_rows($admin_info) != 0){
                                     <div class="modal-footer">
                                        <form action="" method="post">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-                                        <button type="submit" class="btn btn-primary t-button" id="" name="approve">YES</button>
+                                       <a class="btn btn-primary" href="approve_note.php?note_id=<?php echo $n_id ?>" role="button" style="margin-right:50px; " id="approved">YES</a>
                                         </form>
                                     </div>
 
@@ -472,7 +452,7 @@ if(mysqli_num_rows($admin_info) != 0){
                         </div>
                          <!--modal for inreview-->
                         
-                        <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="i<?php echo $srno; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="head">
@@ -485,24 +465,13 @@ if(mysqli_num_rows($admin_info) != 0){
                                             <h4 style="font-size:16px;">Do You Wish to initiate review process?</h4>
                                         </div>
 
-                                        <?php
-                                            if(isset($_POST['inreview'])){
-                                                $remark = $_POST['remark'];
-                                                $unpublish = "UPDATE sellernotes SET Status = 'inreview', AdminRemarks = '$remark' WHERE ID = $n_id ";
-                                                $unpublish_query = mysqli_query($connection,$unpublish);
-                                                if(!unpublish_query){
-                                                    die(mysqli_error($connection));
-                                                }
-
-                                            }
-                                            ?>
                                         
                                     </div>
                                     <div class="modal-footer">
-                                       <form action="" method="post">
+                                      
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-                                        <button type="submit" class="btn btn-primary t-button" id="" name="inreview">YES</button>
-                                        </form>
+                                       <a class="btn btn-primary" href="inreview_note.php?note_id=<?php echo $n_id ?>" role="button" id="" style="margin-right:50px; " >YES</a>
+                                        
                                     </div>
 
                                 </div>
