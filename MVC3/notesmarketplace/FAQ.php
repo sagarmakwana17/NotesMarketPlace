@@ -36,6 +36,7 @@ if(mysqli_num_rows($admin_info) != 0){
 
     <!--Custom CSS-->
     <link rel="stylesheet" href="css/FAQ.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="admin/css/nav.css">
     <link rel="stylesheet" href="css/responsive1.css">
 
@@ -160,17 +161,36 @@ if(mysqli_num_rows($admin_info) != 0){
             </form>
         </div>
     </section>
-    <footer class="footer1">
+    <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <p>Copyright &copy; Tatvasoft All Rights reserved<span><a href=""><i class="fa fa-facebook"> </i></a><a href=""><i class="fa fa-twitter"> </i></a><a href=""><i class="fa fa-instagram"></i></a></span></p>
+                <!-- Copyright -->
+                <div class="col-md-6 col-sm-8 foot-text text-left">
+                    <p>Copyright &copy; TatvaSoft All Rights Reserved.</p>
+                </div>
+                <!-- Social Icon -->
+                <div class="col-md-6 col-sm-4 foot-icon col-sm-4 text-right">
+                    <ul class="social-list">
+                        <li>
+                            <a href="#">
+                                <img src="img/images/facebook.png" alt="facebook-image">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/images/twitter.png" alt="twitter-image">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/images/linkedin.png" alt="linkedin-image">
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-
     </footer>
-
 
 
 

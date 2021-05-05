@@ -101,7 +101,7 @@ if(mysqli_num_rows($admin_info) != 0){
     <!--Custom CSS-->
     <link rel="stylesheet" href="css/dash.css">
     <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/preloader.css">
+    <link rel="stylesheet" href="css/add_cat.css">
 
 
 
@@ -191,35 +191,7 @@ if(mysqli_num_rows($admin_info) != 0){
             </nav>
         </div>
     </header>
-    <style>
-        #first-name,
-        #last-name
-       {
-            width: 50%;
-        }
-        label {
-            font-family: "Open Sans";
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 30px;
-            color: #333333;
-        }
-
-        ::placeholder {
-            font-family: "Open Sans";
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 30px;
-            color: #333333;
-        }
-        h3{
-            color:#6255a5;
-        }
-        .des{
-            height: 120px;
-            padding-bottom: 100px;
-        }
-    </style>
+   
     <section id="add_admin" style="margin-top:70px;">
         <div class="content-box-lg">
             <form action="" method="post">

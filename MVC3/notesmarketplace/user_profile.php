@@ -54,6 +54,7 @@ if(mysqli_num_rows($admin_info) != 0){
 
     <!--Custom CSS-->
     <link rel="stylesheet" href="css/user_profilee.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="admin/css/nav.css">
 <link rel="stylesheet" href="css/responsive1.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -366,56 +367,7 @@ if(mysqli_num_rows($admin_info) != 0){
             </div>
         </div>
     </footer>
-    <style>
-    
-    hr {
-    margin: 0;
-    margin-top: 60px;
-}
-
-.foot-text p {
-    margin: 40px 0;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 18px;
-    color: #333333;
-}
-
-.social-list {
-    margin: 30px 0;
-}
-
-ul.social-list {
-    padding: 0;
-}
-
-ul.social-list li {
-    display: inline-block;
-    padding: 0;
-}
-
-ul.social-list li a {
-    text-align: center;
-    background-color: #6255a5;
-    border: 1px solid #6255a5;
-    width: 36px;
-    height: 36px;
-    display: inline-block;
-    line-height: 30px;
-    color: white;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    transition: all 400ms linear;
-    -webkit-transition: all 400ms linear;
-    -moz-transition: all 400ms linear;
-    -ms-transition: all 400ms linear;
-    -o-transition: all 400ms linear;
-}
-    </style>
+   
 
 
 

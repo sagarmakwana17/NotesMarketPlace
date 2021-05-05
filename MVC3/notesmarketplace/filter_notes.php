@@ -15,7 +15,7 @@ include"includes/database.php";
                 if(isset($_POST['input'])){
                     
                     $input = $_POST['input'];
-                    $query = "SELECT * FROM sellernotes WHERE Title LIKE '{$input}%' OR Category LIKE '{$input}%' OR UniversityName LIKE '{$input}%' OR Course LIKE '{$input}%' ";
+                    $query = "SELECT * FROM sellernotes WHERE  Title LIKE '{$input}%' OR Category LIKE '{$input}%' OR UniversityName LIKE '{$input}%' OR Course LIKE '{$input}%' AND Status = 'published' ";
                     $all_notes = mysqli_query($connection,$query);
                     if(!$all_notes){
                         die("FAILED TO LOAD NOIES".mysqli_error($connection));
@@ -105,7 +105,7 @@ include"includes/database.php";
                 if(isset($_POST['type'])){
                     
                     $type = $_POST['type'];
-                    $query = "SELECT * FROM sellernotes WHERE NoteType = '{$type}'";
+                    $query = "SELECT * FROM sellernotes WHERE NoteType = '{$type}' AND Status = 'published'";
                     $all_notes = mysqli_query($connection,$query);
                     if(!$all_notes){
                         die("FAILED TO LOAD NOIES".mysqli_error($connection));
@@ -192,7 +192,7 @@ include"includes/database.php";
                 if(isset($_POST['category'])){
                     
                     $category = $_POST['category'];
-                    $query = "SELECT * FROM sellernotes WHERE Category  = '{$category}'";
+                    $query = "SELECT * FROM sellernotes WHERE Category  = '{$category}' AND Status = 'published'";
                     $all_notes = mysqli_query($connection,$query);
                     if(!$all_notes){
                         die("FAILED TO LOAD NOIES".mysqli_error($connection));
@@ -284,7 +284,7 @@ include"includes/database.php";
                 if(isset($_POST['university'])){
                     
                     $university= $_POST['university'];
-                    $query = "SELECT * FROM sellernotes WHERE UniversityName = '{$university}'";
+                    $query = "SELECT * FROM sellernotes WHERE UniversityName = '{$university}' AND Status = 'published'";
                     $all_notes = mysqli_query($connection,$query);
                     if(!$all_notes){
                         die("FAILED TO LOAD NOIES".mysqli_error($connection));
@@ -371,7 +371,7 @@ include"includes/database.php";
                 if(isset($_POST['course'])){
                     
                     $course= $_POST['course'];
-                    $query = "SELECT * FROM sellernotes WHERE Course = '{$course}'";
+                    $query = "SELECT * FROM sellernotes WHERE Course = '{$course}' AND Status = 'published'";
                     $all_notes = mysqli_query($connection,$query);
                     if(!$all_notes){
                         die("FAILED TO LOAD NOIES".mysqli_error($connection));
@@ -458,7 +458,7 @@ include"includes/database.php";
                 if(isset($_POST['country'])){
                     
                     $country= $_POST['country'];
-                    $query = "SELECT * FROM sellernotes WHERE Country = '{$country}'";
+                    $query = "SELECT * FROM sellernotes WHERE Country = '{$country}' AND Status = 'published'";
                     $all_notes = mysqli_query($connection,$query);
                     if(!$all_notes){
                         die("FAILED TO LOAD NOIES".mysqli_error($connection));
@@ -548,7 +548,7 @@ include"includes/database.php";
                    
                     
                     
-                    $query = "SELECT u.* , r.* FROM sellernotes AS u JOIN sellernotesreviews AS r ON u.ID = r.NoteID  WHERE r.Ratings = '{$rating}'";
+                    $query = "SELECT u.* , r.* FROM sellernotes AS u JOIN sellernotesreviews AS r ON u.ID = r.NoteID  WHERE r.Ratings = '{$rating}' AND Status = 'published'";
                     $all_notes = mysqli_query($connection,$query);
                     if(!$all_notes){
                         die("FAILED TO LOAD NOIES".mysqli_error($connection));

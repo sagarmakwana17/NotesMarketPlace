@@ -409,22 +409,6 @@ if(mysqli_num_rows($admin_info) != 0){
                                             <h4 style="font-size:16px; margin-top:20px;"> Are you sure you want to approve this note?</h4>
                                         </div>
 
-                                        <?php
-                                            if(isset($_POST['reject'])){
-                                                $remark = $_POST['remark'];
-                                                $unpublish = "UPDATE sellernotes SET Status = 'published', AdminRemarks = '$remark' WHERE ID = $n_id ";
-                                                $unpublish_query = mysqli_query($connection,$unpublish);
-                                                if(!unpublish_query){
-                                                    die(mysqli_error($connection));
-                                                }
-
-                                            }
-                                            ?>
-                                        
-
-                                           
-
-
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>

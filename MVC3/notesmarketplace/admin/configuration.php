@@ -141,7 +141,7 @@ if(mysqli_num_rows($admin_info) != 0){
     <!--Custom CSS-->
     <link rel="stylesheet" href="css/dash.css">
     <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/preloader.css">
+    <link rel="stylesheet" href="css/config.css">
 
 
 
@@ -232,51 +232,7 @@ if(mysqli_num_rows($admin_info) != 0){
         </div>
     </header>
     <style>
-        #first-name,
-        #last-name,
-        #email,
-        #email2 {
-            width: 50%;
-        }
-
-        #phone {
-            width: 45%;
-        }
-
-        label {
-            font-family: "Open Sans";
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 30px;
-            color: #333333;
-        }
-
-        ::placeholder {
-            font-family: "Open Sans";
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 30px;
-            color: #333333;
-        }
-
-        h3 {
-            color: #6255a5;
-        }
-
-        input.p_photo {
-            display: inline-block;
-
-            padding: 100px 0 0 0;
-            height: 100px;
-
-            background: url("../img/images/upload-file.png");
-            background-repeat: no-repeat;
-            background-position: center;
-            margin-bottom: 20px;
-
-
-        }
-
+       
     </style>
     <section id="add_admin" style="margin-top:70px;">
         <div class="content-box-lg">
@@ -368,19 +324,7 @@ if(mysqli_num_rows($admin_info) != 0){
         </div>
     </footer>
     <style>
-        hr {
-            margin: 0;
-            margin-top: 60px;
-        }
-
-        .foot-text p {
-            margin: 40px 0;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 18px;
-            color: #333333;
-        }
+       
 
     </style>
     <!-- JQUERY JS-->

@@ -1,0 +1,58 @@
+ #first-name,
+ #last-name,
+ #email,
+ #email2 {
+     width: 50%;
+ }
+
+ #phone {
+     width: 45%;
+ }
+
+ label {
+     font-family: "Open Sans";
+     font-size: 16px;
+     font-weight: 400;
+     line-height: 30px;
+     color: #333333;
+ }
+
+ ::placeholder {
+     font-family: "Open Sans";
+     font-size: 16px;
+     font-weight: 400;
+     line-height: 30px;
+     color: #333333;
+ }
+
+ h3 {
+     color: #6255a5;
+ }
+
+ input.p_photo {
+     display: inline-block;
+
+     padding: 100px 0 0 0;
+     height: 100px;
+
+     background: url("../../img/images/upload-file.png");
+     background-repeat: no-repeat;
+     background-position: center;
+     margin-bottom: 20px;
+
+
+ }
+
+ hr {
+     margin: 0;
+     margin-top: 60px;
+ }
+
+ .foot-text p {
+     margin: 40px 0;
+     font-family: 'Open Sans', sans-serif;
+     font-size: 14px;
+     font-weight: 400;
+     line-height: 18px;
+     color: #333333;
+ }
